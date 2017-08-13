@@ -59,7 +59,7 @@ def on_message(request):
     else:
         response='지원하는 답변이 아닙니다.'
 
-    if type(response) is str:
+    if isinstance(response, str):
         return {
             'message': {
                 'text': response

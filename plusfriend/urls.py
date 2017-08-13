@@ -8,6 +8,5 @@ urlpatterns = [
     url(r'^friend/(?P<user_key>[\w-]+)$', views.on_block),
     url(r'^chat_room/(?P<user_key>[\w-]+)$', views.on_leave),
     url(r'^message$', views.on_message),
-  
 
     ]
