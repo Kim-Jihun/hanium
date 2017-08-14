@@ -7,8 +7,7 @@ from shop.models import Post, Tag, Rating
 def on_init(request):
     qs = Post.objects.filter(tag_set__name__icontains='sin')
     ordered_query = qs.order_by('-score')
-    print(ordered_query)
-    print("{},{}".format(ordered_query[0].title, ordered_query[0].image.url))
+    print(ordered_query[0].image.url)
     return {'type': 'buttons', 'buttons': ['서울대입구 태그', '신촌태크', '나의 추천 맛집 보기']}
 
 @bot
@@ -32,6 +31,7 @@ def on_message(request):
     print(response)
 
     if isinstance(response, str):
+
         return {
             'message': {
                 'text': response

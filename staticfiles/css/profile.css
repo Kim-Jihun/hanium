@@ -1,0 +1,18 @@
+.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+.img-king{
+    display: block;
+   width:310px;
+    height: 200px;
+}
+.img-rec{
+    display: block;
+   width:310px;
+    height: 200px;
+}
+.rec{
+    font-size:28px;
+}
