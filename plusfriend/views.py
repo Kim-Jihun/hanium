@@ -8,7 +8,7 @@ def on_init(request):
     qs = Post.objects.filter(tag_set__name__icontains='sin')
     ordered_query = qs.order_by('-score')
     return {'type':'text'}
-   # return {'type': 'buttons', 'buttons': ['서울대입구 태그', '신촌태크', '나의 추천 맛집 보기']}
+    # return {'type': 'buttons', 'buttons': ['서울대입구 태그', '신촌태크', '나의 추천 맛집 보기']}
 
 @bot
 def on_message(request):
@@ -31,6 +31,7 @@ def on_message(request):
     print(response)
 
     if isinstance(response, str):
+
         return {
             'message': {
                 'text': response
