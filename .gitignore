@@ -53,3 +53,5 @@ media
 /.vscode
 __pycache__/
 __pycache__
+wget.exe
+
