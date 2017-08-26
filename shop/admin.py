@@ -18,6 +18,6 @@ class RatingAdmin(admin.ModelAdmin):
 
 @admin.register(Tag2)
 class TagAdmin2(admin.ModelAdmin):
-    list_display=['name2']
+    list_display=['name']
 
 # Register your models here.

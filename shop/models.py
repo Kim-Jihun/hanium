@@ -53,7 +53,7 @@ class Tag(models.Model):
         return self.name
 
 class Tag2(models.Model):
-    name2 = models.CharField(max_length=50, unique=False)
+    name = models.CharField(max_length=50, unique=False)
     def __str__(self):
         return self.name
 
