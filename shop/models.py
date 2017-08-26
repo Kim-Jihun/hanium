@@ -52,6 +52,11 @@ class Tag(models.Model):
     def __str__(self):
         return self.name
 
+class Tag2(models.Model):
+    name2 = models.CharField(max_length=50, unique=False)
+    def __str__(self):
+        return self.name
+
 class Rating(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL)  # "auth.User"
     shop = models.ForeignKey(Post)
