@@ -5,12 +5,17 @@ from django.contrib.auth.decorators import login_required
 from .models import Rating
 from .utils.collab_filtering import *
 from django.urls import reverse
-
+from shop.utils.crawling_restaurant.crawling import *
 
 # Create your views here.
 
+def data(request, keyword):
+    post_rest(keyword)
+    return redirect('shop:list')
+
+
 def post_tag(request, tag):
-    qs_tag = Post.objects.filter(tag_set__name__iexact=tag)
+    qs_tag = Post.objects.filter(tag_set__name__icontains=tag)
 
 
     return render(request, 'shop/post_tag.html',{
@@ -103,10 +108,14 @@ def recommendation(request):
     #produce_dataset()
     recommendation = user_recommendations(str(request.user))
     recommend_restaurant_list = []
-    for name in recommendation:
-        object = Post.objects.get(title = name)
-        recommend_restaurant_list.append(object)
-
+    if len(recommendation) != 0:
+        print("here")
+        print(recommendation)
+        for tuple in recommendation:
+            object = Post.objects.get(title = tuple[1])
+            recommend_restaurant_list.append(object)
+    else:
+        pass
     return render(request, 'shop/recommendation_list.html',
                   {'recommendation': recommend_restaurant_list,})
 

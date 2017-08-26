@@ -15,7 +15,7 @@ def similarity_score(person1,person2):
     for item in dataset[person1]:
         if item in dataset[person2]:
             both_viewed[item] = 1
-
+        
         # The Conditions to check if they both have common rating items
         if len(both_viewed) == 0:
             return 0
@@ -27,7 +27,7 @@ def similarity_score(person1,person2):
             if item in dataset[person2]:
                 sum_of_eclidean_distance.append(pow(dataset[person1][item] - dataset[person2][item], 2))
         sum_of_eclidean_distance = sum(sum_of_eclidean_distance)
-
+        
         return 1/(1+sqrt(sum_of_eclidean_distance))
 
 def person_correlation(person1, person2):
@@ -42,7 +42,7 @@ def person_correlation(person1, person2):
         print(''+ str(e) + 'key error')
         return -1
     except Exception as e:
-        print("other error than key error…")
+        print("other error than key error...")
 
 
     number_of_ratings = len(both_rated)
@@ -81,7 +81,7 @@ def most_similar_users(person, number_of_users):
     scores.sort()
     scores.reverse()
     return scores[0:number_of_users]
-
+        
 def user_recommendations(person):
     produce_dataset()
     # Gets recommendations for a person by using a weighted average of every other user's rankings
@@ -97,7 +97,7 @@ def user_recommendations(person):
         #print ">>>>>>>",sim
 
         # ignore scores of zero or lower
-        if sim <=0:
+        if sim <=0: 
             continue
         for item in dataset[other]:
 
@@ -114,35 +114,11 @@ def user_recommendations(person):
 
         # Create the normalized list
     rankings = [(total/simSums[item],item) for item,total in totals.items()]
-
-     #반환할 목록이 없다면 에러메세지 출력하고 종료
-    if rankings ==[]:
-        error_message ="죄송합니다. 데이터 부족으로 인해서 , 추천 서비스를 이용하실 수 없습니다.  업데이트를 기다려 주세요.^^"
-        return []
-
     rankings.sort()
     rankings.reverse()
-
-    #추정 평가가 3.5점 이상인 식당만 반환
-    new_rankings=[]
-    for item in rankings:
-        if item[0] > 3.5 :
-             new_rankings.append(item)
-
-    #3.5 이상의 추천 맛집이  없을 경우
-    if new_rankings ==[]:
-        error_message =" 사용자님이 원하실만한 식당이 부족합니다..  업데이트를 기다려주세요.^^"
-        return []
     # returns the recommended items
     #recommendataions_list = [recommend_item for score,recommend_item in rankings]
     #print('{} return in user_recommendation'.format(recommendataions_list))
-    return new_rankings
+    return rankings
 
-# 취향 저격 식당 보여주기
-def show_recommendations(person, prefs = produce_dataset, n=1) :
-    item = user_recommendations(person)
-    if not type(item) == str:
-          for x in range(len(item)):
-            print(n, item[x][1])
-            n+=1
-    else: print(item)
+

@@ -48,6 +48,7 @@ $(".col-md-3").mouseleave(function(){
       <div class="carousel-inner" role="listbox">
             <div class="item active">
               <div class="row">
+              {%if recommendaton%}
               {% for shop in recommendation %}
             <div class="col-md-3 col-sm-6">
 
@@ -72,7 +73,11 @@ $(".col-md-3").mouseleave(function(){
               <div class="row">
             {% endif %}
             {% endfor %}
-
+            {% else %}
+                  <h1>추천할 식당리스트가 없습니다.</h1>
+                  <h3>1. 안가보신 식당이 없습니다.</h3>
+                  <h3>2. 고객님께서 3점 이상으로 평가할 식당이 없습니다.</h3>
+            {% endif %}
           </div>
           </div>
           </div>

@@ -4,7 +4,7 @@ from .models import Post, Tag, Rating
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display=['id', 'title',]
+    list_display=['id', 'title', 'score']
 
 
 @admin.register(Tag)

@@ -35,8 +35,8 @@ def profile(request):
     point = Post.objects.order_by('-score')[0:8]
     recommendation = user_recommendations(str(request.user))
     recommend_restaurant_list = []
-    for name in recommendation:
-        object = Post.objects.get(title = name)
+    for tuple in recommendation:
+        object = Post.objects.get(title = tuple[1])
         recommend_restaurant_list.append(object)
 
     return render(request, 'accounts/profile.html',

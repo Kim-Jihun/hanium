@@ -28,17 +28,22 @@
                 <div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-left content-article">
                     <div class="row">
                         <div class="col-lg-8 cp-r animate-box">
-                            <pre class="content">{{post.content}}</pre>
-                            <pre class="content">{{post.content3}}</pre>
 
-                            <pre class="content">{{post.content2}} </pre>
+                            <pre class="content">메뉴: {{post.menu}}</pre>
+                            <!--<pre class="content">
+                                {%for i in post.menu%}
+                                {{i}}
+                                {%endfor%}
+                            </pre> -->
 
-                            <pre class="content">{{post.number}}</pre>
+                            <pre class="content">영업시간: {{post.avail_time}} </pre>
+
+                            <pre class="content">{{post.phone_number}}</pre>
                         </div>
                         <div class="col-lg-4 animate-box">
                             <div class="fh5co-highlight right">
-                                <h4>Highlight</h4>
-                                <p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia</p>
+                                <h4>식당설</h4>
+                                <p>{{post.content}}</p>
                             </div>
                         </div>
                     </div>
@@ -61,7 +66,7 @@
         var myLatLng = {lat: lat, lng: lng};
 
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 14,
+          zoom: 17,
           center: myLatLng
         });
         var marker = new google.maps.Marker({
