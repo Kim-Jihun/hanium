@@ -1,0 +1,5 @@
+django<1.11
+pillow
+django-allauth
+django-bootstrap3
+django-extensions

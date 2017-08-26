@@ -1,4 +1,1 @@
-django-allauth
-django-bootstrap3
-django-extensions
-
+-r reqs/prod_aws_eb.txt
