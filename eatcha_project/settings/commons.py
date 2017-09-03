@@ -11,12 +11,13 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
+from os.path import abspath, dirname, join
 import pymysql
 
 pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = dirname(dirname(dirname(abspath(__file__))))
 
 
 # Quick-start development settings - unsuitable for production
@@ -28,7 +29,7 @@ SECRET_KEY = 'dd=(&&!k8q($3n8-fzhwvb=6n-imf4!g2d-0dke-!s!24r@c7o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 # midify
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["*"] # 서비스 주소
 
 
 # Application definition
@@ -100,12 +101,12 @@ WSGI_APPLICATION = 'eatcha_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'eatcha',
+        'NAME': 'deploy_eatcha',
         'USER': 'root',
         'PASSWORD':'0000',
         'HOST':  'localhost', 
         'PORT':'',
-        'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"},
+        #'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"},
     }
 }
 
@@ -157,10 +158,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
-
-STATICFILES_DIRS = (
+#file system finder 설정
+STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
-)
+]
 
 STATIC_ROOT = os.path.join('BASE-DIR', '..', 'staticfiles')
 

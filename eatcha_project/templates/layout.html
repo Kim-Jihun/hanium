@@ -77,6 +77,8 @@
     <script src="{% static 'csrf.js' %}"></script>
     {%block head%}
     {%endblock%}
+    </head>
+<body>
 <header>
 <nav class="navbar navbar-default navbar-static-top navbar-inverse" role="navigation">
 <div class="container-fluid">
@@ -112,7 +114,7 @@
 
                     <li><a href="{% url 'shop:tag' 'snu'%}">서울대입구</a>
                     <li><a href="{% url 'shop:tag' 'sinchon'%}">신촌</a>
-                 
+
                 </ul>
             </li>
         </ul>

@@ -1,4 +1,2 @@
-django-allauth
-django-bootstrap3
-django-extensions
+-r reqs/prod.txt
 

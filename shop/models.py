@@ -4,18 +4,20 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db.models import Avg
 from django.core.urlresolvers import reverse
 
+
+
 class Post(models.Model):
     title = models.CharField(max_length=100, verbose_name="식당이름")
-    image = models.ImageField()
-    content = models.TextField(max_length=500, verbose_name="내용")
-    content2 = models.TextField(max_length=500, verbose_name="메뉴 가격")
-    content3 = models.TextField(max_length=300, verbose_name="영업 시간")
+    image = models.ImageField(default=settings.MEDIA_ROOT+'/default.jpeg')
+    content = models.TextField(max_length=500, verbose_name="내용", default='내용없음', null=True)
+    menu = models.TextField(max_length=500, verbose_name="메뉴 가격", default="메뉴 정보 없음")
+    avail_time = models.TextField(max_length=300, verbose_name="영업 시간", default="영업시간 정보 없음")
     lnglat = models.CharField(max_length=100, blank=True, verbose_name="식당위치")
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
     tag_set = models.ManyToManyField('Tag', blank=True)
-    score = models.SmallIntegerField(default=0)
-    number = models.TextField(max_length=15, verbose_name="전화번호")
+    score = models.SmallIntegerField(default=-1,)
+    phone_number = models.TextField(max_length=15, verbose_name="전화번호", default='전화번호 정보 없음')
     class Meta:
         ordering=['-id']
 
@@ -46,7 +48,7 @@ class Post(models.Model):
         return None
 
 class Tag(models.Model):
-    name = models.CharField(max_length=50, unique=True)
+    name = models.CharField(max_length=50, unique=False)
     def __str__(self):
         return self.name
 
