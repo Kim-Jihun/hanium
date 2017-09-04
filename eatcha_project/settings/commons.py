@@ -98,17 +98,17 @@ WSGI_APPLICATION = 'eatcha_project.wsgi.application'
 #}
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'deploy_eatcha',
-        'USER': 'root',
-        'PASSWORD':'0000',
-        'HOST':  'localhost', 
-        'PORT':'',
-        #'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"},
-    }
-}
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.mysql',
+#        'NAME': 'deploy_eatcha',
+#        'USER': 'root',
+#        'PASSWORD':'0000',
+#        'HOST':  'localhost',
+#        'PORT':'',
+#        #'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"},
+#    }
+#}
 
 
 

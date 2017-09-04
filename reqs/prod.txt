@@ -1,6 +1,2 @@
 -r common.txt
 
-gunicorn
-uwsgi
-psycopg2
-raven
