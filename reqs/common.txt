@@ -3,3 +3,4 @@ django-extensions
 django-allauth
 django-bootstrap3
 django-debug-toolbar
+beautifulsoup4
