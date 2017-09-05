@@ -1,6 +1,7 @@
-django
+django>=1.10.4
 django-extensions
 django-allauth
 django-bootstrap3
-django-imagekit
 pillow
+pilkit
+django-imagekit
