@@ -1,5 +1,7 @@
 from .commons import *
+import pymysql
 
+pymysql.install_as_MySQLdb()
 
 ALLOWED_HOSTS = ['사용하는 url']
 
