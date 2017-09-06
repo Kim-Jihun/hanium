@@ -1,4 +1,4 @@
-django>=1.10.4
+django<10.11
 django-extensions
 django-allauth
 django-bootstrap3
