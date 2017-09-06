@@ -1,13 +1,9 @@
 from .commons import *
 import os
 
-ALLOWED_HOSTS = "*"
-DEBUG = False
-
 import pymysql
 pymysql.install_as_MySQLdb()
 
-DEBUG = True
 #ORM에서 쿼리 내역이 계속 쌓인다. 그런데 배포환경에서는 서버가 재시작하지 않아서 메모리 가득찬 후에 에러난다.
 #예외내역 user에게 노출
 
