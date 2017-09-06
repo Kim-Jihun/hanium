@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="35cc6f1e-2707-4cf1-b104-490099b77522" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/a2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/eatcha_project/storages.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/options_config_이전" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shop/migrations/0007_auto_20170903_1940.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.ebextensions/options.config" afterPath="$PROJECT_DIR$/.ebextensions/options.config" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eatcha_project/settings/prod.py" afterPath="$PROJECT_DIR$/eatcha_project/settings/prod.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eatcha_project/wsgi.py" afterPath="$PROJECT_DIR$/eatcha_project/wsgi.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reqs/common.txt" afterPath="$PROJECT_DIR$/reqs/common.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reqs/prod.txt" afterPath="$PROJECT_DIR$/reqs/prod.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shop/models.py" afterPath="$PROJECT_DIR$/shop/models.py" />
-    </list>
+    <list default="true" id="35cc6f1e-2707-4cf1-b104-490099b77522" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
