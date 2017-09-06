@@ -7,6 +7,11 @@ pymysql.install_as_MySQLdb()
 #ORM에서 쿼리 내역이 계속 쌓인다. 그런데 배포환경에서는 서버가 재시작하지 않아서 메모리 가득찬 후에 에러난다.
 #예외내역 user에게 노출
 
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+# midify
+ALLOWED_HOSTS = ["*"] # 서비스 주소
+
 
 #원래는 여기에 사용할 db 설정을 해주어야 한다.
 DATABASES = {

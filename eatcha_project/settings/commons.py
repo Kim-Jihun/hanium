@@ -16,17 +16,15 @@ from os.path import abspath, dirname, join
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = dirname(dirname(dirname(abspath(__file__))))
 
-
+'''
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'dd=(&&!k8q($3n8-fzhwvb=6n-imf4!g2d-0dke-!s!24r@c7o'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# midify
-ALLOWED_HOSTS = ["*"] # 서비스 주소
+'''
+
 
 
 # Application definition
