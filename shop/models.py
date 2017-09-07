@@ -31,9 +31,12 @@ class Post(models.Model):
     @property
     def calc_score(self):
         avg = self.rating_set.all().aggregate(Avg('score'))['score__avg']
-        self.score = int(avg * 10)
-        self.save()
-        return self.score/10
+        if avg is None:
+            self.score= -1
+        else:
+            self.score = int(avg * 10)
+            self.save()
+            return self.score/10
 
     @property
     def lng(self):
