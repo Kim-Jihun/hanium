@@ -27,6 +27,7 @@ DATABASES = {
 
 INSTALLED_APPS += ['storages'] # django-storages 앱 의존성 추가
 
+
 # 기본 static/media 저장소를 django-storages로 변경
 STATICFILES_STORAGE = 'eatcha_project.storages.StaticS3Boto3Storage'
 DEFAULT_FILE_STORAGE = 'eatcha_project.storages.MediaS3Boto3Storage'
