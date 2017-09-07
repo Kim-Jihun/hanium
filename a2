@@ -8,4 +8,4 @@ eb setenv \
     AWS_ACCESS_KEY_ID='AKIAJXUL2KM5LAQOXKFA'\
     AWS_SECRET_ACCESS_KEY='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'\
     AWS_STORAGE_BUCKET_NAME='eatcha'\
-    AWS_S3_REGION_NAME='ap-northeast-2'
+    AWS_S3_REGION_NAME='ap-northeast-2'py
