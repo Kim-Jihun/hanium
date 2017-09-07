@@ -1,0 +1,11 @@
+eb setenv \
+    DJANGO_SETTINGS_MODULE=eatcha_project.settings.prod\
+    DB_HOST='eatcha.cxqu604zjmfx.ap-northeast-2.rds.amazonaws.com'\
+    DB_USER='eatcha'\
+    DB_PASSWORD='iela12am'\
+    DB_PORT='3306'\
+    DB_NAME='eatcha'\
+    AWS_ACCESS_KEY_ID='AKIAJXUL2KM5LAQOXKFA'\
+    AWS_SECRET_ACCESS_KEY='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'\
+    AWS_STORAGE_BUCKET_NAME='eatcha'\
+    AWS_S3_REGION_NAME='ap-northeast-2'
