@@ -32,8 +32,8 @@ INSTALLED_APPS += ['storages'] # django-storages 앱 의존성 추가
 STATICFILES_STORAGE = 'eatcha_project.storages.StaticS3Boto3Storage'
 DEFAULT_FILE_STORAGE = 'eatcha_project.storages.MediaS3Boto3Storage'
 
-STATIC_URL = 'https://s3.ap-northeast-2.amazonaws.com/eatcha/'
-MEDIA_URL = 'https://s3.ap-northeast-2.amazonaws.com/eatcha/'
+STATIC_URL = 'https://s3.ap-northeast-2.amazonaws.com/eatcha/static/'
+MEDIA_URL = 'https://s3.ap-northeast-2.amazonaws.com/eatcha/media/'
 
 
 # S3 파일 관리에 필요한 최소 설정

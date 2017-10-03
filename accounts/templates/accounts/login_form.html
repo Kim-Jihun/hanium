@@ -234,7 +234,7 @@ font-family : 'Nanum Pen Script', sans-serif, sans-serif;
 		<p>
             {% if providers.0.social_app %}
 			<a class="facebook-before"><span class="fontawesome-facebook"></span></a>
-			<button class="facebook"><a href="{%provider_login_url providers.0.id%}">Login Using Facbook</a></button>
+			<button class="facebook"><a href="{%provider_login_url providers.0.id%}">SignUp or LogIn Using Facbook</a></button>
             {% else %}
             <a>
                 Provider {{ providers.0.name }} 설정이 필요합니다.
@@ -249,7 +249,7 @@ font-family : 'Nanum Pen Script', sans-serif, sans-serif;
             {% if providers.2.social_app %}
 
 			<a class="twitter-before"><span class="fontawesome-signin"></span></a>
-			<button class="twitter"><a href="{%provider_login_url providers.2.id%}">Login Using Naver</a></button>
+			<button class="twitter"><a href="{%provider_login_url providers.2.id%}">SignUp or LogIn Using Naver</a></button>
             {% else %}
                <a>
                 Provider {{ providers.2.name }} 설정이 필요합니다.
