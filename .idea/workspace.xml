@@ -2,13 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35cc6f1e-2707-4cf1-b104-490099b77522" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/a" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/a2" afterPath="$PROJECT_DIR$/a2" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/templates/accounts/login_form.html" afterPath="$PROJECT_DIR$/accounts/templates/accounts/login_form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eatcha_project/settings/dev.py" afterPath="$PROJECT_DIR$/eatcha_project/settings/dev.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eatcha_project/settings/prod.py" afterPath="$PROJECT_DIR$/eatcha_project/settings/prod.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eatcha_project/templates/layout.html" afterPath="$PROJECT_DIR$/eatcha_project/templates/layout.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -58,11 +51,21 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="a2" pinned="false" current-in-tab="true">
+          <file leaf-file-name="a2" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/a2">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="170">
                   <caret line="10" column="39" lean-forward="true" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="layout.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/accounts/templates/accounts/layout.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -90,11 +93,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="layout.html" pinned="false" current-in-tab="false">
+          <file leaf-file-name="layout.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/eatcha_project/templates/layout.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="86">
-                  <caret line="123" column="88" lean-forward="false" selection-start-line="123" selection-start-column="88" selection-end-line="123" selection-end-column="88" />
+                <state relative-caret-position="69">
+                  <caret line="122" column="73" lean-forward="false" selection-start-line="122" selection-start-column="73" selection-end-line="122" selection-end-column="73" />
                   <folding />
                 </state>
               </provider>
@@ -159,7 +162,7 @@
           <file leaf-file-name="login_form.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/accounts/templates/accounts/login_form.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="272">
+                <state relative-caret-position="305">
                   <caret line="251" column="99" lean-forward="false" selection-start-line="251" selection-start-column="99" selection-end-line="251" selection-end-column="99" />
                   <folding />
                 </state>
@@ -211,8 +214,8 @@
         <option value="$PROJECT_DIR$/eatcha_project/settings/prod.py" />
         <option value="$PROJECT_DIR$/eatcha_project/settings/dev.py" />
         <option value="$PROJECT_DIR$/accounts/templates/accounts/login_form.html" />
-        <option value="$PROJECT_DIR$/eatcha_project/templates/layout.html" />
         <option value="$PROJECT_DIR$/a2" />
+        <option value="$PROJECT_DIR$/eatcha_project/templates/layout.html" />
       </list>
     </option>
   </component>
@@ -344,42 +347,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="settings" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="eatcha_project_배포연습용" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="eatcha_project_배포연습용" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="accounts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="eatcha_project_배포연습용" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="eatcha_project_배포연습용" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="accounts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="accounts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -592,13 +559,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///anaconda/lib/python3.6/site-packages/django_extensions/management/commands/delete_squashed_migrations.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.vscode/settings.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -900,7 +860,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/accounts/templates/accounts/login_form.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
+        <state relative-caret-position="305">
           <caret line="251" column="99" lean-forward="false" selection-start-line="251" selection-start-column="99" selection-end-line="251" selection-end-column="99" />
           <folding />
         </state>
@@ -913,14 +873,6 @@
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eatcha_project/templates/layout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="123" column="88" lean-forward="false" selection-start-line="123" selection-start-column="88" selection-end-line="123" selection-end-column="88" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -954,6 +906,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="39" lean-forward="true" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/accounts/templates/accounts/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eatcha_project/templates/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="122" column="73" lean-forward="false" selection-start-line="122" selection-start-column="73" selection-end-line="122" selection-end-column="73" />
           <folding />
         </state>
       </provider>
