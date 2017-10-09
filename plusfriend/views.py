@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, resolve_url
 from .decorators import bot
 from . import functions
 from shop.models import Post, Tag, Rating
@@ -43,7 +43,7 @@ def on_message(request):
 
         return {
             'message': {
-                'text': user_key + type + content
+                'text': response
             }
         }
     else:
@@ -51,13 +51,26 @@ def on_message(request):
             'message': {
                 'text': '식당이름:' + response.title,
                 'photo': {
-			#"url": 'https://s3.ap-northeast-2.amazonaws.com/eatcha' + response.image.url,
-            "url": 'https://s3.ap-northeast-2.amazonaws.com/eatcha/media/srchttp3A2F2Fblogfiles.naver.net2F20150529_1362Fwdojo_1432876822368n6oMb_JPEG2FIMG_7019.JPG',
-			"width": 640,
-			"height": 480,
-		},
-            }
-        }
+                    #"url": 'https://s3.ap-northeast-2.amazonaws.com/eatcha' + response.image.url,
+                    "url": 'https://s3.ap-northeast-2.amazonaws.com/eatcha/media/srchttp3A2F2Fblogfiles.naver.net2F20150529_1362Fwdojo_1432876822368n6oMb_JPEG2FIMG_7019.JPG',
+                    "width": 640,
+                    "height": 480,
+                },
+            },
+
+            "message_button": {
+                "label": "상세 url로 이동",
+                "url": resolve_url('shop:detail', response.id)
+            },
+
+            "keyboard": {
+                "type": "buttons",
+                "buttons": [
+                  "메뉴",
+                  "가격",
+                  "장소"
+                ]
+             }
 
 
 @bot
