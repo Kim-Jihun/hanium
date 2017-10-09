@@ -50,7 +50,7 @@ def on_message(request):
 
         return {
             'message': {
-                'text': user_key + type
+                'text': user_key + type + content
             }
         }
     else:
