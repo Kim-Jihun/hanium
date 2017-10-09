@@ -8,7 +8,7 @@ from django.core.urlresolvers import reverse
 
 class Post(models.Model):
     title = models.CharField(max_length=100, verbose_name="식당이름")
-    image = models.ImageField(blank=True)
+    image = models.ImageField( )
     content = models.TextField(max_length=500, verbose_name="내용", default='내용없음', null=True)
     menu = models.TextField(max_length=500, verbose_name="메뉴 가격", default="메뉴 정보 없음", null=True)
     avail_time = models.TextField(max_length=300, verbose_name="영업 시간", default="영업시간 정보 없음")
