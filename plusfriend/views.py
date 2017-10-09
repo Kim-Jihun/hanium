@@ -7,7 +7,9 @@ from django.http import JsonResponse
 @bot
 def on_init(request):
 
-    return {'type': 'buttons', 'buttons': ['서울대입구', '신촌', '왕십리']}
+    #return {'type': 'buttons', 'buttons': ['서울대입구', '신촌', '왕십리']}
+    return {'type': 'text'}
+
 
 @bot
 def on_message(request):
@@ -16,19 +18,30 @@ def on_message(request):
     type = request.JSON['type']
     content = request.JSON['content'] # photo 타입일 경우에는 이미지 URL
 
-    if content.startswith('서울대'):
+
+
+    if '서울대' in content:
         qs = Post.objects.filter(tag_set__location__icontains='서울대')
         ordered_query = qs.order_by('-score')
         response = ordered_query[0]
-    elif content.startswith('신촌'):
+    elif '신촌' in content:
         qs = Post.objects.filter(tag_set__location__icontains='신촌')
         ordered_query = qs.order_by('-score')
         response = ordered_query[0]
 
-    elif content.startswith('왕십리'):
+    elif '왕십리' in content:
+        '''
         qs = Post.objects.filter(tag_set__location__icontains='왕십리')
         ordered_query = qs.order_by('-score')
         response = ordered_query[0]
+
+        '''
+        return {
+                'message': {
+                    'text': "이제 됨!"
+                }
+            }
+
     else:
         response='지원하는 답변이 아닙니다.'
 
@@ -37,7 +50,7 @@ def on_message(request):
 
         return {
             'message': {
-                'text': response
+                'text': user_key
             }
         }
     else:
