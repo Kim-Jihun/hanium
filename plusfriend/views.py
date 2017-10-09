@@ -20,27 +20,20 @@ def on_message(request):
 
 
 
-    if '서울대' in content:
+    if '서울' in content:
         qs = Post.objects.filter(tag_set__location__icontains='서울대')
         ordered_query = qs.order_by('-score')
         response = ordered_query[0]
-    elif '신촌' in content:
+    elif '신' in content:
         qs = Post.objects.filter(tag_set__location__icontains='신촌')
         ordered_query = qs.order_by('-score')
         response = ordered_query[0]
 
-    elif '왕십리' in content:
-        '''
+    elif '왕십' in content:
+
         qs = Post.objects.filter(tag_set__location__icontains='왕십리')
         ordered_query = qs.order_by('-score')
         response = ordered_query[0]
-
-        '''
-        return {
-                'message': {
-                    'text': "이제 됨!"
-                }
-            }
 
     else:
         response='지원하는 답변이 아닙니다.'
