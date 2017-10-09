@@ -43,7 +43,7 @@ def on_message(request):
     else:
         return {
             'message': {
-                'text': '식당이름:' + response.title + '세부페이지' + response.get_absolute_url(),
+                'text': '식당이름:' + response.title,
                 'photo': {
 			"url": response.image.url,
 			"width": 640,
