@@ -71,6 +71,9 @@ def on_message(request):
                   "장소"
                 ]
              }
+        }
+
+
 
 
 @bot
