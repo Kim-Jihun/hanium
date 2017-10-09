@@ -7,8 +7,8 @@ from django.http import JsonResponse
 @bot
 def on_init(request):
 
-    #return {'type': 'buttons', 'buttons': ['서울대입구', '신촌', '왕십리']}
-    return {'type': 'text'}
+    return {'type': 'buttons', 'buttons': ['서울대입구', '신촌', '왕십리', '왜 안되나 아무거나 시험']}
+    #return {'type': 'text'}
 
 
 @bot
@@ -50,7 +50,7 @@ def on_message(request):
 
         return {
             'message': {
-                'text': user_key
+                'text': user_key + type
             }
         }
     else:
