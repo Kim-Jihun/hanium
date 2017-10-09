@@ -56,13 +56,14 @@ def on_message(request):
                     "width": 640,
                     "height": 480,
                 },
+                "message_button": {
+                    "label": "상세 url로 이동",
+                    "url": resolve_url('shop:detail', id=response.id)
+                    #"url": 'www.naver.com'
+                },
+
             },
 
-            "message_button": {
-                "label": "상세 url로 이동",
-                #"url": resolve_url('shop:detail', id=response.id)
-                "url": 'www.naver.com'
-            },
 
             "keyboard": {
                 "type": "buttons",
