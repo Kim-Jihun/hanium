@@ -217,7 +217,7 @@ font-family : 'Nanum Pen Script', sans-serif, sans-serif;
 
 
             {{ form.answer.errors }}
-			<p><label for="{{ form.answer.id_for_label }}">3+3=?:</label>
+			<p><label for="{{ form.answer.id_for_label }}">로그인 검증. 질문에 답해주세요! 3+3=? </label>
             {{ form.answer }}
             </p>
 
@@ -234,7 +234,7 @@ font-family : 'Nanum Pen Script', sans-serif, sans-serif;
 		<p>
             {% if providers.0.social_app %}
 			<a class="facebook-before"><span class="fontawesome-facebook"></span></a>
-			<button class="facebook"><a href="{%provider_login_url providers.0.id%}">SignUp or LogIn Using Facbook</a></button>
+			<button class="facebook"><a href="{%provider_login_url providers.0.id%}">Facbook 계정으로 로그인하거나 회원가입</a></button>
             {% else %}
             <a>
                 Provider {{ providers.0.name }} 설정이 필요합니다.
@@ -249,7 +249,7 @@ font-family : 'Nanum Pen Script', sans-serif, sans-serif;
             {% if providers.2.social_app %}
 
 			<a class="twitter-before"><span class="fontawesome-signin"></span></a>
-			<button class="twitter"><a href="{%provider_login_url providers.2.id%}">SignUp or LogIn Using Naver</a></button>
+			<button class="twitter"><a href="{%provider_login_url providers.2.id%}">Naver 계정으로 로그인하거나 회원가입</a></button>
             {% else %}
                <a>
                 Provider {{ providers.2.name }} 설정이 필요합니다.

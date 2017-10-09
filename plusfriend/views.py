@@ -2,13 +2,12 @@ from django.shortcuts import render
 from .decorators import bot
 from . import functions
 from shop.models import Post, Tag, Rating
+from django.http import JsonResponse
 
 @bot
 def on_init(request):
-    qs = Post.objects.filter(tag_set__name__icontains='sin')
-    ordered_query = qs.order_by('-score')
-    return {'type':'text'}
-    # return {'type': 'buttons', 'buttons': ['서울대입구 태그', '신촌태크', '나의 추천 맛집 보기']}
+
+    return {'type': 'buttons', 'buttons': ['서울대입구', '신촌', '왕십리']}
 
 @bot
 def on_message(request):
@@ -18,17 +17,21 @@ def on_message(request):
     content = request.JSON['content'] # photo 타입일 경우에는 이미지 URL
 
     if content.startswith('서울대'):
-        qs = Post.objects.filter(tag_set__name__icontains='snu')
+        qs = Post.objects.filter(tag_set__location__icontains='서울대')
         ordered_query = qs.order_by('-score')
         response = ordered_query[0]
     elif content.startswith('신촌'):
-        qs = Post.objects.filter(tag_set__name__icontains='sin')
+        qs = Post.objects.filter(tag_set__location__icontains='신촌')
+        ordered_query = qs.order_by('-score')
+        response = ordered_query[0]
+
+    elif content.startswith('왕십리'):
+        qs = Post.objects.filter(tag_set__location__icontains='왕십리')
         ordered_query = qs.order_by('-score')
         response = ordered_query[0]
     else:
         response='지원하는 답변이 아닙니다.'
 
-    print(response)
 
     if isinstance(response, str):
 
@@ -40,9 +43,9 @@ def on_message(request):
     else:
         return {
             'message': {
-                'text': response.title,
+                'text': '식당이름:' + response.title + '세부페이지' + response.get_absolute_url(),
                 'photo': {
-			"url": "http://blog.jinbo.net/attach/615/200937431.jpg",
+			"url": response.image.url,
 			"width": 640,
 			"height": 480,
 		},

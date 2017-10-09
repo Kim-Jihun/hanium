@@ -1,11 +1,12 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from .models import Post
-from .forms import RatingForm
+from .forms import RatingForm, IndexForm
 from django.contrib.auth.decorators import login_required
 from .models import Rating
 from .utils.collab_filtering import *
 from django.urls import reverse
 from shop.utils.crawling_restaurant.crawling import *
+from django.db.models import Q
 
 # Create your views here.
 
@@ -13,15 +14,6 @@ def data(request, keyword):
     post_rest(keyword)
     return redirect('shop:list')
 
-
-def post_tag(request, tag):
-    qs_tag = Post.objects.filter(tag_set__name__icontains=tag)
-
-
-    return render(request, 'shop/post_tag.html',{
-        'tag': tag,
-        'shop_list_tag': qs_tag
-    })
 
 
 def post_list(request):
@@ -52,13 +44,48 @@ def post_detail(request, id):
     })
 
 def post_home(request):
-    point = Post.objects.order_by('-score')[0:8]
+    recommendation = user_recommendations(str(request.user))
+    recommend_restaurant_list = []
+
+    if len(recommendation) != 0:
+        for tuple in recommendation:
+            object = Post.objects.get(title = tuple[1])
+            recommend_restaurant_list.append(object)
+    else:
+        pass
+
+    star8 = Post.objects.all().order_by('-score')[0:8]
+
+    if request.method =='POST':
+        form = IndexForm(request.POST, request.FILES)
+        if form.is_valid():
+            cleaned_data = form.cleaned_data
+            print(form.cleaned_data)
+            '''사전 key: title, location, menu, price'''
+            query = Post.objects.filter(Q(tag_set__location__icontains=cleaned_data['location'])&Q(tag_set__menu__icontains=cleaned_data['menu'])&
+                                        Q(tag_set__avg_price__gte=int(cleaned_data['price']))&Q(tag_set__avg_price__lte=int(cleaned_data['price'])+2000))
+
+            return render(request, 'shop/post_home.html',
+                {
+                'shop_list':query,
+                'star8' : star8,
+                'form':form,
+                'recommendation': recommend_restaurant_list,
+                })
+
+
+
+        else:
+            form.errors
+    else:
+        form = IndexForm()
+
 
     return render(request, 'shop/post_home.html',
         {
-        'point' : point,
-
-
+        'star8' : star8,
+        'form' : form,
+        'recommendation': recommend_restaurant_list
         })
 
 
@@ -121,20 +148,31 @@ def recommendation(request):
 
 
 def select_shop(request):
-    print(request.user)
+    #print(request.user)
     #rated_qs=Rating.objects.select_related("shop").filter(user__username__icontains=request.user)
     #not_rated_qs=Rating.objects.select_related("shop").exclude(user__username__icontains=request.user)
     rated_qs = Post.objects.filter(rating__user__username__icontains=request.user)
     not_rated_qs = Post.objects.exclude(rating__user__username__icontains=request.user)
 
-    print(rated_qs)
-    print(not_rated_qs)
+    #print(rated_qs)
+    #print(not_rated_qs)
 
     return render(request, 'shop/rated_not_rated_respectively.html', {
         'rated': rated_qs,
         'not_rated': not_rated_qs,
         'recommendation': user_recommendations(request.user.username)
     })
+
+
+def post_tag(request, tag):
+    qs_tag = Post.objects.filter(tag_set__location__icontains=tag)
+
+
+    return render(request, 'shop/post_tag.html',{
+        'tag': tag,
+        'shop_list_tag': qs_tag
+    })
+
 
 
 

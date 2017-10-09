@@ -6,18 +6,17 @@ from urllib.request import urlretrieve
 from django.core.files import File
 from bs4 import BeautifulSoup
 
-
-def search(q):
+def crawling_data(q):
     res_list =[]
-    i = 1
+    count = 1
     url = "https://m.store.naver.com/sogum/api/businesses"
 
 
-    for k in range(0, 1):
+    for k in range(0, 2):
         params = {
             'query': q,
-            'start' : i,
-            'display': 10,
+            'start' : count,
+            'display': 20,
         }
 
         html = requests.get(url, params = params).text
@@ -26,7 +25,7 @@ def search(q):
 
         if items not in res_list:
             res_list.extend(items)
-            i = i + 20
+            count = count + 20
 
         else:
             break
@@ -52,92 +51,143 @@ def search(q):
             detail_html = requests.get(detail_url, params = detail_params).text
             bs_obj = BeautifulSoup(detail_html, 'html.parser')
             content_dict = {}
-            #print(res_basic_dic)
-            content_dict['lnglat'] = str(res_basic_dic[res][0]).replace('(','').replace(')','').replace("'", '')
-            content_dict['tag'] = str(res_basic_dic[res][1]).replace('[','').replace(']','').strip()
-            content_dict['title'] = bs_obj.select('.biz_name')[0].text
-            content_dict['address'] = bs_obj.select('.addr')[0].text
-            content_dict['phone_number'] = bs_obj.select('.btn_tel')[0]['href']
-            content_dict['avail_time'] = bs_obj.select('.txt > span')[4].text
+            try:
+                content_dict['lnglat'] = str(res_basic_dic[res][0]).replace('(','').replace(')','').replace("'", '')
+                content_dict['tag'] = str(res_basic_dic[res][1]).replace('[','').replace(']','').strip()
+                content_dict['title'] = bs_obj.select('.biz_name')[0].text
+                content_dict['address'] = bs_obj.select('.addr')[0].text
+                content_dict['phone_number'] = bs_obj.select('.btn_tel')[0]['href']
+                content_dict['avail_time'] = bs_obj.select('.txt > span')[4].text
 
 
 
-            menu_list  = bs_obj.select('.menu  .menu_area span')
-            menu_dict = {}
-            for i in menu_list:
-                if i.text == '대표':
-                    continue
+                menu_list = bs_obj.select('.menu  .menu_area span')
+                menu_dict = {}
+                for i in menu_list:
+                    if i.text == '대표':
+                        continue
+                    menu_dict[i.text] = None
 
-                #print(i.text)
-                menu_dict[i.text] = None
+                price_list = bs_obj.select('.menu  li em')
+                price_list_numbers = []
 
-            #print(menu_dict)
-            price_list = bs_obj.select('.menu  li em')
+                p = 0
+                for key in menu_dict.keys():
+                    price = price_list[p].text
+                    menu_dict[key] = price
+                    price_list_numbers.append(price)
+                    p = p+1
 
-            i = 0
-            for key in menu_dict.keys():
-                menu_dict[key] = price_list[i].text
-                i = i+1
-            menu_str = str(menu_dict)
-            menu_str_strip = menu_str[1:len(menu_str)-1]
-            content_dict['menu'] = menu_str_strip
-            #print(menu_str_strip)
+                import string
+                import math
+
+                # Thanks to Martijn Pieters for this improved version
+
+                # This uses the 3-argument version of str.maketrans
+                # with arguments (x, y, z) where 'x' and 'y'
+                # must be equal-length strings and characters in 'x'
+                # are replaced by characters in 'y'. 'z'
+                # is a string (string.punctuation here)
+                # where each character in the string is mapped
+                # to None
+                translator = str.maketrans('', '', string.punctuation)
+
+                # This is an alternative that creates a dictionary mapping
+                # of every character from string.punctuation to None (this will
+                # also work)
+                #translator = str.maketrans(dict.fromkeys(string.punctuation))
+
+                s = 'string with "punctuation" inside of it! Does this work? I hope so.'
+
+                # pass the translator to the string's
+                #print(s.translate(translator))
+
+                #print(price_list_numbers)
+                sum = 0
+                for r in price_list_numbers:
+                    temp = r[0:len(r)-1]
+                    sum += math.floor(int(temp.translate(translator)))
+
+                avg_price = math.floor(sum/len(price_list_numbers))
+                #print(avg_price)
+
+                menu_str = str(menu_dict)
+                menu_str_strip = menu_str[1:len(menu_str)-1]
+                content_dict['menu'] = menu_str_strip
+                content_dict['avg_price'] = avg_price
+
+            except:
+                print("one of lgnlat, tag, title, address, phone_number, avail_time, menu, avg_price error!")
+
             try:
                 contents_str= bs_obj.select('.info .ellipsis_area')[0].text
                 contents_str_strip = contents_str[0:len(contents_str)-2]
                 content_dict['content'] = contents_str_strip.strip()
             except:
                 print('Error! during contents!')
+
             try:
                 img_src = str(bs_obj.select('div._flick-ct')[0])
                 src_start_idx = img_src.find('https://')
                 src_end_idx = img_src.find('&')
                 img_src = img_src[src_start_idx:src_end_idx]
                 #print(img_src)
-                content_dict['img_src'] = img_src
+                if img_src== "":
+                    continue
+                else:
+                    content_dict['img_src'] = img_src
             except:
                 print('Error! during image url..!')
 
 
             res_info.append(content_dict)
-            #break
+
+
+
     return res_info
 
 
+
 def post_rest(keyword):
-    final_list = search(keyword)
+    final_list = crawling_data(keyword)
     for rest in final_list:
-        post_instance = Post(
-            title = rest.get('title'),
-            menu=rest.get('menu'),
-            content=rest.get('content'),
-            avail_time=rest.get('avail_time'),
-            lnglat= rest.get('lnglat'),
+        try:
+            post_instance = Post(
+                title = rest.get('title'),
+                menu=rest.get('menu'),
+                content=rest.get('content'),
+                avail_time=rest.get('avail_time'),
+                lnglat= rest.get('lnglat'),
 
-            phone_number=rest.get('phone_number'),
-        )
-        post_instance.save()
-
-
-        image = urlretrieve(rest.get('img_src'))
-        #post_instance = Animal.objects.create(name='Dog')
-        fname = os.path.basename(rest.get('img_src'))
-
-        with open(image[0], 'rb') as fp:
-            post_instance.image.save(fname, File(fp))
+                phone_number=rest.get('phone_number'),
+            )
             post_instance.save()
 
-        tag_instance = Tag(name=rest.get('tag'))
-        tag_instance.save()
+            tag_instance = Tag(
+                title = rest.get('title'),
+                menu=rest.get('menu'),
+                location= keyword,
+                avg_price=rest.get('avg_price'),
+            )
+            tag_instance.save()
 
-        post_instance.tag_set.add(tag_instance)
-        post_instance.save()
 
-        tag_instance = Tag(name=keyword)
-        tag_instance.save()
+            image = urlretrieve(rest.get('img_src'))
 
-        post_instance.tag_set.add(tag_instance)
-        post_instance.save()
+            fname = os.path.basename(rest.get('img_src'))
+
+            with open(image[0], 'rb') as fp:
+                post_instance.image.save(fname, File(fp))
+                post_instance.save()
+
+            post_instance.tag_set.add(tag_instance)
+            post_instance.save()
+
+            post_instance.tag_set.add(tag_instance)
+            post_instance.save()
+
+        except:
+            print("DB storing error!")
 
 
 

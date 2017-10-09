@@ -1,5 +1,34 @@
 {% extends "shop/layout.html" %}
-{% block content %}
+
+{%block head%}
+<style>
+    .rating, .label{
+  font-size:22px;
+}
+
+</style>
+
+<script>
+    $(function() {
+        $('.rating').click(function() {
+            var score = $(this).data('score');
+            if (confirm(score + "점을 주시겠습니까?") ) {
+                var url = $(this).attr('href');
+                $.post(url, {score: score}, function(response, status, xhr) {
+                    if ( xhr.status == 200 ) {
+                        alert('평점저장!');
+                    }
+                    else {
+                        alert('오류 : ' + xhr.status);
+                    }
+                });
+            }
+            return false;
+        });
+    });
+</script>
+
+
 <script>
 $(document).ready(function () {
     $('#myCarousel').carousel({
@@ -49,6 +78,7 @@ $(this).addClass("active");
 
 
 </script>
+
 <style>
 
 .gallery-title
@@ -107,40 +137,65 @@ $(this).addClass("active");
 
 
 
-    <hr>
 
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-        <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
-        <link href='custom.css' rel='stylesheet' type='text/css'>
 
+
+
+
+{%endblock%}
+
+{% block content %}
         <div class="container">
+
             <div class="row">
                 <div class="col-md-12">
                     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                         <!-- Indicators -->
                         <ol class="carousel-indicators">
                             <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="1" class="candidate1"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="2" class="candidate2"></li>
                         </ol>
 
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner" role="listbox">
                             <div class="item active">
-                                <img src="{{ point.5.image.url }}" alt="" width="1000px" height="300px">
+
+                                <img src="{{ recommendation.0.image.url }}" alt="" width="600px" height="180px">
+
                                 <div class="carousel-caption">
-                                    <h1>Carousel in a container</h1>
-                                    <p>This is a demo for the Bootstrap Carousel Guide.</p>
+                                    <h1>고객님의 취향저격 맛집</h1>
+                                    <p>첫번째로 고객님이 좋아하실 곳</p>
                                 </div>
+
                             </div>
-                            <div class="item">
-                                <img src="{{ point.5.image.url }}" alt="">
+
+                            <div class="item candidate1">
+
+                                <img src="{{ recommendation.1.image.url }}" alt="" width="600px" height="180px">
+
+                                <div class="carousel-caption">
+                                    <h1>고객님의 취향저격 맛집</h1>
+                                    <p>두번째로 고객님이 좋아하실 곳</p>
+                                </div>
+
                             </div>
-                            <div class="item">
-                                <img src="{{ point.5.image.url }}" alt="">
+
+                            <div class="item candidate2">
+
+                                <img src="{{ recommendation.3.image.url }}" alt="" width="600px" height="180px">
+
+                                <div class="carousel-caption">
+                                 <h1>고객님의 취향저격 맛집</h1>
+                                 <p>세번째로 고객님이 좋아하실 곳</p>
+                                </div>
+
                             </div>
+
+
+
+
+
                         </div>
 
                         <!-- Controls -->
@@ -162,44 +217,25 @@ $(this).addClass("active");
   <div class="container">
         <div class="row">
         <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
-           <center><h1 class="gallery-title">지역별 맛집</h1><br>
+           <center><h1 class="gallery-title">맛집검색</h1><br>
         </div>
 
         <div align="center">
+
+            <form action="" method="post">
+                    {%csrf_token%}
+                    {{form}}
+                    <input type="submit">
+            </form>
+            <!--
             <button class="btn btn-default filter-button" data-filter="all">All</button>
             <button class="btn btn-default filter-button" data-filter="hdpe">HDPE Pipes</button>
             <button class="btn btn-default filter-button" data-filter="sprinkle">Sprinkle Pipes</button>
             <button class="btn btn-default filter-button" data-filter="spray">Spray Nozzle</button>
             <button class="btn btn-default filter-button" data-filter="irrigation">Irrigation Pipes</button>
+            -->
         </div>
         <br/>
-
-
-
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-                <img src="http://fakeimg.pl/365x365/" class="img-responsive">
-            </div>
-
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle">
-                <img src="http://fakeimg.pl/365x365/" class="img-responsive">
-            </div>
-
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-                <img src="http://fakeimg.pl/365x365/" class="img-responsive">
-            </div>
-
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
-                <img src="http://fakeimg.pl/365x365/" class="img-responsive">
-            </div>
-
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray">
-                <img src="http://fakeimg.pl/365x365/" class="img-responsive">
-            </div>
-
-            <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation">
-                <img src="http://fakeimg.pl/365x365/" class="img-responsive">
-            </div>
-
 
 
         </div>
@@ -210,46 +246,56 @@ $(this).addClass("active");
         <div class="row">
             <div class="span12">
                 <div class="well">
+                    <center><h3>종합평점이 가장 높은 7곳 추천!</h3><br>
                     <div id="myCarousel" class="carousel fdi-Carousel slide">
                      <!-- Carousel items -->
-                        <div class="carousel fdi-Carousel slide" id="eventCarousel" data-interval="0">
+                        <div class="carousel fdi-Carousel slide" id="eventCarousel" data-interval="">
                             <div class="carousel-inner onebyone-carosel">
+
                                 <div class="item active">
                                     <div class="col-md-4">
-                                        <a href="#"><img src="{{ point.0.image.url }}" class="img-responsive center-block" width="300px" height="150px"></a>
-                                        <div class="text-center"><span class="label label-info">{{point.0.calc_score}}</span>{{point.0.title}}</div>
+                                        <a href="#"><img src="{{ star8.0.image.url }}" class="img-responsive center-block" width="300px" height="150px"></a>
+                                        <div class="text-center"><span class="label label-info">{{star8.0.calc_score}}</span>{{star8.0.title}}</div>
                                     </div>
                                 </div>
                                 <div class="item">
                                     <div class="col-md-4">
-                                        <a href="#"><img src="{{ point.1.image.url }}" class="img-responsive center-block" width="300px" height="150px"></a>
-                                        <div class="text-center"><span class="label label-info">{{point.1.calc_score}}</span>{{point.1.title}}</div>
+                                        <a href="#"><img src="{{ star8.1.image.url }}" class="img-responsive center-block" width="300px" height="150px"></a>
+                                        <div class="text-center"><span class="label label-info">{{star8.1.calc_score}}</span>{{star8.1.title}}</div>
                                     </div>
                                 </div>
                                 <div class="item">
                                     <div class="col-md-4">
-                                        <a href="#"><img src="{{ point.2.image.url }}" class="img-responsive center-block" width="300px" height="150px"></a>
-                                        <div class="text-center"><span class="label label-info">{{point.2.calc_score}}</span>{{point.2.title}}</div>
+                                        <a href="#"><img src="{{ star8.2.image.url }}" class="img-responsive center-block" width="300px" height="150px"></a>
+                                        <div class="text-center"><span class="label label-info">{{star8.2.calc_score}}</span>{{star8.2.title}}</div>
                                     </div>
                                 </div>
                                 <div class="item">
                                     <div class="col-md-4">
-                                        <a href="#"><img src="{{ point.3.image.url }}" class="img-responsive center-block" width="300px" height="150px"></a>
-                                        <div class="text-center"><span class="label label-info">{{point.3.calc_score}}</span>{{point.3.title}}</div>
+                                        <a href="#"><img src="{{ star8.3.image.url }}" class="img-responsive center-block" width="300px" height="150px"></a>
+                                        <div class="text-center"><span class="label label-info">{{star8.3.calc_score}}</span>{{star8.3.title}}</div>
                                     </div>
                                 </div>
                                 <div class="item">
                                     <div class="col-md-4">
-                                        <a href="#"><img src="{{ point.4.image.url }}" class="img-responsive center-block" width="300px" height="150px"></a>
-                                        <div class="text-center"><span class="label label-info">{{point.4.calc_score}}</span>{{point.4.title}}</div>
+                                        <a href="#"><img src="{{ star8.4.image.url }}" class="img-responsive center-block" width="300px" height="150px"></a>
+                                        <div class="text-center"><span class="label label-info">{{star8.4.calc_score}}</span>{{star8.4.title}}</div>
                                     </div>
                                 </div>
                                 <div class="item">
                                     <div class="col-md-4">
-                                        <a href="#"><img src="{{ point.5.image.url }}" class="img-responsive center-block" width="300px" height="150px"></a>
-                                        <div class="text-center"><span class="label label-info">{{point.5.calc_score}}</span>{{point.5.title}}</div>
+                                        <a href="#"><img src="{{ star8.5.image.url }}" class="img-responsive center-block" width="300px" height="150px"></a>
+                                        <div class="text-center"><span class="label label-info">{{star8.5.calc_score}}</span>{{star8.5.title}}</div>
                                     </div>
                                 </div>
+                                <div class="item">
+                                    <div class="col-md-4">
+                                        <a href="#"><img src="{{ star8.6.image.url }}" class="img-responsive center-block" width="300px" height="150px"></a>
+                                        <div class="text-center"><span class="label label-info">{{star8.6.calc_score}}</span>{{star8.6.title}}</div>
+                                    </div>
+                                </div>
+
+
                             </div>
                             <a class="left carousel-control" href="#eventCarousel" data-slide="prev"></a>
                             <a class="right carousel-control" href="#eventCarousel" data-slide="next"></a>
@@ -261,6 +307,55 @@ $(this).addClass("active");
         </div>
     </div>
 
+    <hr>
 
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
+        <link href='custom.css' rel='stylesheet' type='text/css'>
+
+
+<div class="container-fluid">
+        <div class="row fh5co-post-entry">
+    {% for shop in shop_list %}
+            <article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+                 <figure>
+                <a href="{% url "shop:detail" shop.id %}"><img src="{{ shop.image.url }}" alt="No_image" class="img-king"></a>
+                </figure>
+                <span class="fh5co-meta"><a href="single.html">{{shop.tags}}</a></span>
+                <h2 class="fh5co-article-title"><a href="single.html">{{shop.title}}</a></h2>
+
+
+                        <a href="#">{{ shop.name }}</a>
+
+                        <span class="label label-info">{{ shop.calc_score }}</span>
+
+                        <a href="{% url "shop:rating_new" shop.pk%}" class="rating" data-score="5">
+                            5점
+                        </a>
+                        <a href="{% url "shop:rating_new" shop.pk%}" class="rating" data-score="4" >
+                            4점
+                        </a>
+                        <a href="{% url "shop:rating_new" shop.pk%}" class="rating" data-score="3">
+                            3점
+                        </a>
+                        <a href="{% url "shop:rating_new" shop.pk%}" class="rating" data-score="2">
+                            2점
+                        </a>
+                        <a href="{% url "shop:rating_new" shop.pk%}" class="rating" data-score="1">
+                            1점
+                        </a>
+
+
+                <span class="fh5co-meta fh5co-date">July 27th, 2017</span>
+              </article>
+    {% endfor %}
+
+            <div class="clearfix visible-lg-block visible-md-block visible-sm-block visible-xs-block"></div>
+
+    </div>
+    </div>
 
 {% endblock %}
+

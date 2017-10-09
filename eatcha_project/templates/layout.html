@@ -88,7 +88,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a href="{% url "shop:list" %}" class="navbar-brand">Home</a>
+        <a href="{% url "shop:home" %}" class="navbar-brand">Home</a>
     </div>
     <div id="navbar-menu" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
@@ -105,15 +105,9 @@
             <li class="dropdown hidden-xs">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">지역별 맛집<b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li class="hidden-lg hidden-md"><a href="/blackouts/">Blackouts</a></li>
-                    <li class="hidden-lg hidden-md"><a href="/tasks/">Tasks</a></li>
-                    <li class="hidden-lg"><a href="/songs/">Songs</a></li>
-                    <li class="hidden-lg"><a href="/testimonials/">Testimonials</a></li>
-                    <li class="divider hidden-lg"></li>
-
-
-                    <li><a href="{% url 'shop:tag' 'snu'%}">서울대입구</a>
-                    <li><a href="{% url 'shop:tag' 'sinchon'%}">신촌</a>
+                    <li><a href="{% url 'shop:tag' '왕십리'%}">왕십리</a>
+                    <li><a href="{% url 'shop:tag' '서울대입구'%}">서울대입구</a>
+                    <li><a href="{% url 'shop:tag' '신촌'%}">신촌</a>
 
                 </ul>
             </li>
