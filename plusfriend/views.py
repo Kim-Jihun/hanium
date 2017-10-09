@@ -60,7 +60,8 @@ def on_message(request):
 
             "message_button": {
                 "label": "상세 url로 이동",
-                "url": resolve_url('shop:detail', response.id)
+                #"url": resolve_url('shop:detail', id=response.id)
+                "url": 'www.naver.com'
             },
 
             "keyboard": {
