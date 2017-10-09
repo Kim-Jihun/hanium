@@ -20,7 +20,7 @@ def on_message(request):
 
 
 
-    if '서울' in content:
+    if '서울대' in content:
         qs = Post.objects.filter(tag_set__location__icontains='서울대')
         ordered_query = qs.order_by('-score')
         response = ordered_query[0]
@@ -29,7 +29,7 @@ def on_message(request):
         ordered_query = qs.order_by('-score')
         response = ordered_query[0]
 
-    elif '왕십' in content:
+    elif '왕십리' in content:
 
         qs = Post.objects.filter(tag_set__location__icontains='왕십리')
         ordered_query = qs.order_by('-score')
@@ -51,7 +51,7 @@ def on_message(request):
             'message': {
                 'text': '식당이름:' + response.title,
                 'photo': {
-			"url": response.image.url,
+			"url": 'https://s3.ap-northeast-2.amazonaws.com/eatcha' + response.image.url,
 			"width": 640,
 			"height": 480,
 		},
