@@ -51,7 +51,8 @@ def on_message(request):
             'message': {
                 'text': '식당이름:' + response.title,
                 'photo': {
-			"url": 'https://s3.ap-northeast-2.amazonaws.com/eatcha' + response.image.url,
+			#"url": 'https://s3.ap-northeast-2.amazonaws.com/eatcha' + response.image.url,
+            "url": 'https://s3.ap-northeast-2.amazonaws.com/eatcha/media/srchttp3A2F2Fblogfiles.naver.net2F20150529_1362Fwdojo_1432876822368n6oMb_JPEG2FIMG_7019.JPG',
 			"width": 640,
 			"height": 480,
 		},
