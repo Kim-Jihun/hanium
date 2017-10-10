@@ -39,11 +39,7 @@
                  <figure>
                 <a href="{% url "shop:detail" shop.id %}"><img src="{{ shop.image.url }}" alt="No_image" class="img-king"></a>
                 </figure>
-                <span class="fh5co-meta"><a href="single.html">{{shop.tags}}</a></span>
-                <h2 class="fh5co-article-title"><a href="single.html">{{shop.title}}</a></h2>
-
-
-                        <a href="#">{{ shop.name }}</a>
+                        <h2 class="fh5co-article-title"><a href="{% url "shop:detail" shop.id %}">{{shop.title}}</a></h2>
 
                         <span class="label label-info">{{ shop.calc_score }}</span>
 
