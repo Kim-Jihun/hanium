@@ -32,7 +32,7 @@ def on_message(request):
 
             location = new_list[0]
             menu = new_list[1]
-            price = new_list[2]
+
 
             query_set = Post.objects.filter(
                 Q(tag_set__location__icontains=location)&Q(tag_set__menu__icontains=menu)
