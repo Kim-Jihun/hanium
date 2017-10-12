@@ -96,6 +96,7 @@ def on_message(request):
             string += str(i)[1:len(str(i))-1]
             #print(i)
             string += '\n'
+        string += '\n\n\n'
         return string
 
     return {
