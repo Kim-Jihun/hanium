@@ -28,11 +28,7 @@ def on_init(request):
 
             "keyboard": {
                 "type": "text",
-                "buttons": [
-                  "메뉴",
-                  "가격",
-                  "장소"
-                ]
+
              }
         }
 

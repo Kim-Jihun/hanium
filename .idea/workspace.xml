@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35cc6f1e-2707-4cf1-b104-490099b77522" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plusfriend/views.py" afterPath="$PROJECT_DIR$/plusfriend/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shop/templates/shop/post_home.html" afterPath="$PROJECT_DIR$/shop/templates/shop/post_home.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -84,8 +85,8 @@
           <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/plusfriend/views.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="187">
-                  <caret line="11" column="64" lean-forward="false" selection-start-line="11" selection-start-column="64" selection-end-line="11" selection-end-column="64" />
+                <state relative-caret-position="238">
+                  <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
                   <folding>
                     <element signature="e#0#48#0" expanded="true" />
                   </folding>
@@ -116,8 +117,8 @@
           <file leaf-file-name="post_home.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/shop/templates/shop/post_home.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="102">
-                  <caret line="163" column="60" lean-forward="false" selection-start-line="163" selection-start-column="60" selection-end-line="163" selection-end-column="60" />
+                <state relative-caret-position="17">
+                  <caret line="163" column="61" lean-forward="false" selection-start-line="163" selection-start-column="61" selection-end-line="163" selection-end-column="61" />
                   <folding />
                 </state>
               </provider>
@@ -285,9 +286,9 @@
         <option value="$PROJECT_DIR$/shop/templates/shop/post_detail.html" />
         <option value="$PROJECT_DIR$/accounts/templates/accounts/profile.html" />
         <option value="$PROJECT_DIR$/shop/forms.py" />
-        <option value="$PROJECT_DIR$/plusfriend/views.py" />
         <option value="$PROJECT_DIR$/eatcha_project/templates/layout.html" />
         <option value="$PROJECT_DIR$/shop/views.py" />
+        <option value="$PROJECT_DIR$/plusfriend/views.py" />
         <option value="$PROJECT_DIR$/shop/templates/shop/post_home.html" />
       </list>
     </option>
@@ -1048,16 +1049,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plusfriend/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="64" lean-forward="false" selection-start-line="11" selection-start-column="64" selection-end-line="11" selection-end-column="64" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/accounts/templates/accounts/layout.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -1098,10 +1089,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/plusfriend/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/shop/templates/shop/post_home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="163" column="60" lean-forward="false" selection-start-line="163" selection-start-column="60" selection-end-line="163" selection-end-column="60" />
+        <state relative-caret-position="17">
+          <caret line="163" column="61" lean-forward="false" selection-start-line="163" selection-start-column="61" selection-end-line="163" selection-end-column="61" />
           <folding />
         </state>
       </provider>
