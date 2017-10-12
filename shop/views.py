@@ -111,7 +111,7 @@ def post_home(request):
         {
         'star8' : star8,
         'form' : form,
-        'recommendation': recommend_restaurant_list
+        'recommendation': recommend_restaurant_list,
         })
 
 
