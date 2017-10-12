@@ -158,7 +158,7 @@ $(this).addClass("active");
                         </ol>
 
                         <!-- Wrapper for slides -->
-                        <div class="carousel-inner" role="listbox">
+                        <div class="carousel-inner" role="listbox" align="center">
                             <div class="item active">
 
                                 <a href="{% url "shop:detail" recommendation.0.id %}"><img src="{{ recommendation.0.image.url }}" alt="No_image" width="600px" height="180px"></a>
@@ -241,6 +241,57 @@ $(this).addClass("active");
         </div>
     </div>
 </section>
+
+    <hr>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
+        <link href='custom.css' rel='stylesheet' type='text/css'>
+
+
+<div class="container-fluid">
+        <div class="row fh5co-post-entry">
+    {% for shop in shop_list %}
+            <article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
+                 <figure>
+                <a href="{% url "shop:detail" shop.id %}"><img src="{{ shop.image.url }}" alt="No_image" class="img-king"></a>
+                </figure>
+                <span class="fh5co-meta"><a href="single.html">{{shop.tags}}</a></span>
+                <h2 class="fh5co-article-title"><a href="single.html">{{shop.title}}</a></h2>
+
+
+                        <a href="#">{{ shop.name }}</a>
+
+                        <span class="label label-info">{{ shop.calc_score }}</span>
+
+                        <a href="{% url "shop:rating_new" shop.pk%}" class="rating" data-score="5">
+                            5점
+                        </a>
+                        <a href="{% url "shop:rating_new" shop.pk%}" class="rating" data-score="4" >
+                            4점
+                        </a>
+                        <a href="{% url "shop:rating_new" shop.pk%}" class="rating" data-score="3">
+                            3점
+                        </a>
+                        <a href="{% url "shop:rating_new" shop.pk%}" class="rating" data-score="2">
+                            2점
+                        </a>
+                        <a href="{% url "shop:rating_new" shop.pk%}" class="rating" data-score="1">
+                            1점
+                        </a>
+
+
+                <span class="fh5co-meta fh5co-date">July 27th, 2017</span>
+              </article>
+    {% endfor %}
+
+            <div class="clearfix visible-lg-block visible-md-block visible-sm-block visible-xs-block"></div>
+
+    </div>
+    </div>
+
 <hr>
     <div class="container">
         <div class="row">
@@ -307,55 +358,6 @@ $(this).addClass("active");
         </div>
     </div>
 
-    <hr>
-
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-        <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
-        <link href='custom.css' rel='stylesheet' type='text/css'>
-
-
-<div class="container-fluid">
-        <div class="row fh5co-post-entry">
-    {% for shop in shop_list %}
-            <article class="col-lg-3 col-md-3 col-sm-3 col-xs-6 col-xxs-12 animate-box">
-                 <figure>
-                <a href="{% url "shop:detail" shop.id %}"><img src="{{ shop.image.url }}" alt="No_image" class="img-king"></a>
-                </figure>
-                <span class="fh5co-meta"><a href="single.html">{{shop.tags}}</a></span>
-                <h2 class="fh5co-article-title"><a href="single.html">{{shop.title}}</a></h2>
-
-
-                        <a href="#">{{ shop.name }}</a>
-
-                        <span class="label label-info">{{ shop.calc_score }}</span>
-
-                        <a href="{% url "shop:rating_new" shop.pk%}" class="rating" data-score="5">
-                            5점
-                        </a>
-                        <a href="{% url "shop:rating_new" shop.pk%}" class="rating" data-score="4" >
-                            4점
-                        </a>
-                        <a href="{% url "shop:rating_new" shop.pk%}" class="rating" data-score="3">
-                            3점
-                        </a>
-                        <a href="{% url "shop:rating_new" shop.pk%}" class="rating" data-score="2">
-                            2점
-                        </a>
-                        <a href="{% url "shop:rating_new" shop.pk%}" class="rating" data-score="1">
-                            1점
-                        </a>
-
-
-                <span class="fh5co-meta fh5co-date">July 27th, 2017</span>
-              </article>
-    {% endfor %}
-
-            <div class="clearfix visible-lg-block visible-md-block visible-sm-block visible-xs-block"></div>
-
-    </div>
-    </div>
 
 {% endblock %}
 
