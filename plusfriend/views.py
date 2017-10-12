@@ -21,7 +21,7 @@ def on_message(request):
 
 
 
-    if content != '다시 검색하기' or content !='그만 검색':
+    if content not in ['다시 검색하기', '그만 검색']:
 
         list = content.split(',')
         new_list = []
@@ -90,9 +90,17 @@ def on_message(request):
         shop_temp['상세소개 url'] = ' '+ 'http://production.g3g2me2gp2.ap-northeast-2.elasticbeanstalk.com'+resolve_url('shop:detail', id=i.id)+' '
         final_shop_list.append(shop_temp)
 
+    def to_string(self, final_shop_list):
+        str = []
+        for i in final_shop_list:
+            for j in i:
+                str = "" + str(j) + "\n"
+            "\n\n"
+        return str
+
     return {
         'message': {
-            'text': '식당이름:' + str(final_shop_list)
+            'text': '식당이름:' + to_string(final_shop_list)
         },
 
         "keyboard": {
