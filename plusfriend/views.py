@@ -49,7 +49,7 @@ def on_message(request):
                     "type": "text",
                 }
             }
-    elif content == '다시 검색하기':
+    elif '다시 검' in content:
         return {
             'message': {
                 'text': 'Eatcha입니다! 맛집검색시 장소, 메뉴로 검색해 주세요, 높은 평점대로 보여드립니다!',
@@ -69,7 +69,7 @@ def on_message(request):
             },
         }
 
-    elif content != '그만 검색':
+    elif '그만 검' in content:
         return {
                 'message': {
                     'text': '이용해 주셔서 감사합니다!',
@@ -87,7 +87,7 @@ def on_message(request):
         shop_temp['메뉴'] = tag.menu
         shop_temp['평균가격'] = tag.avg_price
         shop_temp['별점'] = i.score
-        shop_temp['상세소개 url'] = 'http://production.g3g2me2gp2.ap-northeast-2.elasticbeanstalk.com'+resolve_url('shop:detail', id=i.id)
+        shop_temp['상세소개 url'] = ' '+ 'http://production.g3g2me2gp2.ap-northeast-2.elasticbeanstalk.com'+resolve_url('shop:detail', id=i.id)+' '
         final_shop_list.append(shop_temp)
 
     return {
