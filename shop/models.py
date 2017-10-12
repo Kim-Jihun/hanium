@@ -78,5 +78,18 @@ class Rating(models.Model):
     def get_absolute_url(self):
         return reverse('shop:detail', args=[self.shop.pk])
 
+class Review(models.Model):
+    post = models.ForeignKey(Post)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL)
+    content = models.TextField(max_length=300, verbose_name="내용", default='내용없음', null=True)
+    date_created = models.DateTimeField(auto_now_add=True)
+    date_updated = models.DateTimeField(auto_now=True)
+    good = models.IntegerField(default='0')
+    notgood = models.IntegerField(default='0')
+    
+    
+    def __str__(self):
+        return self.content
+
 
 

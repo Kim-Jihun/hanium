@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Tag, Rating
+from .models import Post, Tag, Rating,Review
 
 
 @admin.register(Post)
@@ -15,6 +15,10 @@ class TagAdmin(admin.ModelAdmin):
 @admin.register(Rating)
 class RatingAdmin(admin.ModelAdmin):
     list_display=['user','shop','score']
+
+@admin.register(Review)
+class ReviewAdmin(admin.ModelAdmin):
+    list_display=['post','content','user']
 
 
 

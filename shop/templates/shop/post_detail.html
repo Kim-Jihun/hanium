@@ -7,6 +7,17 @@
     font-family: 'Nanum Pen Script', cursive;
     font-size : 24px;
 }
+span.star-prototype, span.star-prototype > * {
+    height: 16px; 
+    background: url(http://i.imgur.com/YsyS5y8.png) 0 -16.5px repeat-x;
+    width: 80px;
+    display: inline-block;
+}
+ 
+span.star-prototype > * {
+    background-position: 0 -5px;
+    max-width:80px; 
+}
 </style>
     {% if prev_post %}
         <a href="{% url "shop:detail" prev_post.id %}?tag={{ tag }}"class="fh5co-post-prev"><span><i class="icon-chevron-left"></i> Prev</span></a>
@@ -92,6 +103,86 @@
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5L9VzTwu1-AIMiRw_vRGzyI6atflF4yI&callback=initMap">
     </script>
+    <br><br><br>
+    <h2>상세 후기 </h2>
+    <div class="fh5co-highlight ">
+       {%if user.is_authenticated %}
+        <table>
+                <h3>{{user}} 님의 후기</h3>
+            당신의 평가: <span class="star-prototype">
+                    {% for rating in user.rating_set.all%}
+                    {%if  post.title|stringformat:"s" == rating.shop|stringformat:"s"%}
+                    {{rating.score}}
+                    {%endif%}
+                    {%endfor%}
+            </span>
+            <form action="" method="post">
+                {% csrf_token %}
+                <table>{{ form.as_table }}</table>
+                <div align ="center"><input class="btn btn-basic" type="submit" value=" 확 인" /></div>
+            </form>
+        </table>
+        {%else%}
+        <p>로그인해야 후기를 작성할 수 있습니다.</p> 
+        {%endif%} 
+    </div>
+        
+        {%for review in post.review_set.all %}
+        <div class="fh5co-highlight ">
+                <h3>by  {{review.user}} </h3><br>
+                <span class="star-prototype">
+                        {% for rating in review.user.rating_set.all%}
+                        {%if  post.title|stringformat:"s" == rating.shop|stringformat:"s"%}
+                        {{rating.score}}
+                        {%endif%}
+                        {%endfor%}
+                    
+                </span><br>
+        {{review.content}}<br>
+        <div>
+            <p class="pull-right" id="m">({{review.notgood}})</p>
+            
+          {%if not user.is_authenticated %}
+          <button onclick="button1_click();" class="pull-right" ><img src="https://dfzrjox9sv97l.cloudfront.net/dicons_20160930/img/review/ic_profile_review_down_on.png" />비공감</button>
+          {%else%}
+          <form action="" method="get">
+          <button onclick="button2_click();"class="pull-right" name="mb" value={{review.id}}><img src="https://dfzrjox9sv97l.cloudfront.net/dicons_20160930/img/review/ic_profile_review_down_on.png" />비공감</button>
+          {%endif%}
+             </form>
+                 <p class="pull-right" id="p">({{review.good}})</p>
+          {%if not user.is_authenticated %}
+          <button onclick="button1_click();" class="pull-right" ><img src="https://dfzrjox9sv97l.cloudfront.net/dicons_20160930/img/review/ic_profile_review_up_on.png" style="margin-left:5px;" />공감</button>
+          {%else%}
+             <form action="" method="get">
+            <button onclick="button3_click();" class="pull-right" name="pb" value={{review.id}}><img src="https://dfzrjox9sv97l.cloudfront.net/dicons_20160930/img/review/ic_profile_review_up_on.png" style="margin-left:5px;" />공감</button>
+          {%endif%}
+            </form>
+        </div><br>
+        <div><small>  {{review.date_created}} </small></div>
+        </div>
+        {%endfor%}
+        <script>
+                $.fn.generateStars = function() {
+                    return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
+                };
+                $('.star-prototype').generateStars();
+                //별점주기
+        </script>
+        <script>
+                function button1_click(){
+                    
+                    alert("로그인해야 이용가능합니다.");
+                };
+                function button2_click(){
+                    
+                    alert("비공감해 주셨습니다.");
+                };
+                function button3_click(){
+                    
+                    alert("공감해 주셨습니다.");
+                };
+                //공감 로그인시에만
+        </script>
   </body>
 </html>
                 </div>

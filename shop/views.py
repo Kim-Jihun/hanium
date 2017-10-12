@@ -1,8 +1,8 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from .models import Post
-from .forms import RatingForm, IndexForm
+from .forms import RatingForm, IndexForm, ReviewForm
 from django.contrib.auth.decorators import login_required
-from .models import Rating
+from .models import Rating, Review
 from .utils.collab_filtering import *
 from django.urls import reverse
 from shop.utils.crawling_restaurant.crawling import *
@@ -28,6 +28,9 @@ def post_list(request):
 def post_detail(request, id):
     tag = request.GET.get('tag','')
     post = get_object_or_404(Post, id=id)
+    rating = Rating.objects.all()
+    nsym = request.GET.get('mb')
+    sym = request.GET.get('pb')
 
     next_post_list = Post.objects.filter(id__gt=post.id).order_by('id')
     prev_post_list = Post.objects.filter(id__lt=post.id).order_by('-id')
@@ -36,11 +39,34 @@ def post_detail(request, id):
         next_post_list = next_post_list.filter(tag_set__name__iexact=tag)
         prev_post_list = prev_post_list.filter(tag_set__name__iexact=tag)
 
+    if nsym:
+        s=Review.objects.get(id=nsym)
+        s.notgood +=1
+        s.save()
+    if sym:
+        s=Review.objects.get(id=sym)
+        s.good +=1
+        s.save()
+
+    if request.method =='POST':
+        form = ReviewForm(request.POST, request.FILES)
+        if form.is_valid():
+            review = Review()
+            review.post=Post(id=id)
+            review.user=request.user
+            review.content=form.cleaned_data['content']
+            review.save() 
+            return redirect('shop:detail', id)
+    else:
+        form = ReviewForm()
+
     return render(request, 'shop/post_detail.html', {
         'post': post,
         'next_post': next_post_list.first(),
         'prev_post': prev_post_list.first(),
         'tag': tag,
+        'form': form,
+        'rating':rating,
     })
 
 def post_home(request):

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Rating
+from .models import Rating, Review
 from .validators import min_length_1_validator
 
 class RatingForm(forms.ModelForm):
@@ -19,6 +19,15 @@ class IndexForm(forms.Form):
     location = forms.ChoiceField(widget=forms.Select, choices=CHOICES_location, label="식당 위치")
     menu = forms.CharField(validators=[min_length_1_validator], label="메뉴검색")
     price = forms.ChoiceField(widget=forms.Select, choices=CHOICES_price, label="평균 가격대")
+
+class ReviewForm(forms.ModelForm):
+    content = forms.CharField(widget=forms.Textarea(attrs={'cols': 70, 'rows': 4}))
+    
+    
+    class Meta:
+        model = Review
+        #fields = '__all__'
+        fields = ['content']
 
 
 
