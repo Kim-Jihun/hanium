@@ -161,7 +161,7 @@ $(this).addClass("active");
                         <div class="carousel-inner" role="listbox" align="center">
                             <div class="item active">
 
-                                <a href="{% url "shop:detail" recommendation.0.id %}"><img src="{{ recommendation.0.image.url }}" alt="No_image" width="600px" height="180px"></a>
+                                <a href="{% url 'shop:detail recommendation.0.id %}"><img src="{{ recommendation.0.image.url }}" alt="No_image" width="600px" height="180px"></a>
 
                                 <div class="carousel-caption">
                                     <h1>고객님의 취향저격 맛집</h1>
@@ -172,7 +172,7 @@ $(this).addClass("active");
 
                             <div class="item candidate1">
 
-                                <a href="{% url "shop:detail" recommendation.1.id %}"><img src="{{ recommendation.1.image.url }}" alt="No_image" width="600px" height="180px"></a>
+                                <a href="{% url 'shop:detail' recommendation.1.id %}"><img src="{{ recommendation.1.image.url }}" alt="No_image" width="600px" height="180px"></a>
 
                                 <div class="carousel-caption">
                                     <h1>고객님의 취향저격 맛집</h1>
@@ -183,7 +183,7 @@ $(this).addClass("active");
 
                             <div class="item candidate2">
 
-                                <a href="{% url "shop:detail" recommendation.2.id %}"><img src="{{ recommendation.3.image.url }}" alt="No_image" width="600px" height="180px"></a>
+                                <a href="{% url 'shop:detail' recommendation.2.id %}"><img src="{{ recommendation.3.image.url }}" alt="No_image" width="600px" height="180px"></a>
 
                                 <div class="carousel-caption">
                                  <h1>고객님의 취향저격 맛집</h1>
