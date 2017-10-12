@@ -90,17 +90,17 @@ def on_message(request):
         shop_temp['상세소개 url'] = ' '+ 'http://production.g3g2me2gp2.ap-northeast-2.elasticbeanstalk.com'+resolve_url('shop:detail', id=i.id)+' '
         final_shop_list.append(shop_temp)
 
-    def to_string(self, final_shop_list):
-        str = ""
+    def to_string(final_shop_list):
+        string = ""
         for i in final_shop_list:
-            for j in i:
-                str + str(j) + "\n"
-            "\n\n"
-        return str
+            string += str(i)[1:len(str(i))-1]
+            #print(i)
+            string += '\n'
+        return string
 
     return {
         'message': {
-            'text': '식당이름:' + to_string(final_shop_list)
+            'text': to_string(final_shop_list)
         },
 
         "keyboard": {
