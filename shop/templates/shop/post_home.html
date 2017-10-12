@@ -145,8 +145,11 @@ $(this).addClass("active");
 {%endblock%}
 
 {% block content %}
+      {%if not recommendation%}
+      <div align=center><strong>맛집평가를 한 후 이용가능 합니다.</strong></div><br>
+      <div align=center><button type="button"><a href="{% url "shop:list" %}">평가하러가기</a></button></div>
+      {%else%}
         <div class="container">
-
             <div class="row">
                 <div class="col-md-12">
                     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -161,7 +164,7 @@ $(this).addClass("active");
                         <div class="carousel-inner" role="listbox" align="center">
                             <div class="item active">
 
-                                <a href="{% url "shop:detail" recommendation.0.id %}"><img src="{{ recommendation.0.image.url }}" alt="No_image" width="600px" height="180px"></a>
+                                <a href="{%url "shop:detail" recommendation.0.id%}"><img src="{{ recommendation.0.image.url }}" alt="No_image" width="600px" height="180px"></a>
 
                                 <div class="carousel-caption">
                                     <h1>고객님의 취향저격 맛집</h1>
@@ -191,11 +194,6 @@ $(this).addClass("active");
                                 </div>
 
                             </div>
-
-
-
-
-
                         </div>
 
                         <!-- Controls -->
@@ -211,7 +209,7 @@ $(this).addClass("active");
                 </div>
             </div>
         </div>
-
+{%endif%}
 
 <hr>
   <div class="container">
@@ -302,55 +300,62 @@ $(this).addClass("active");
                      <!-- Carousel items -->
                         <div class="carousel fdi-Carousel slide" id="eventCarousel" data-interval="">
                             <div class="carousel-inner onebyone-carosel">
-
                                 <div class="item active">
                                     <div class="col-md-4">
                                         <a href="#"><img src="{{ star8.0.image.url }}" class="img-responsive center-block" width="300px" height="150px"></a>
                                         <div class="text-center"><span class="label label-info">{{star8.0.calc_score}}</span>{{star8.0.title}}</div>
                                     </div>
-                                </div>
+                            </div>
+                            <div class="carousel-inner onebyone-carosel">
                                 <div class="item">
                                     <div class="col-md-4">
                                         <a href="#"><img src="{{ star8.1.image.url }}" class="img-responsive center-block" width="300px" height="150px"></a>
                                         <div class="text-center"><span class="label label-info">{{star8.1.calc_score}}</span>{{star8.1.title}}</div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="carousel-inner onebyone-carosel">
                                 <div class="item">
                                     <div class="col-md-4">
                                         <a href="#"><img src="{{ star8.2.image.url }}" class="img-responsive center-block" width="300px" height="150px"></a>
                                         <div class="text-center"><span class="label label-info">{{star8.2.calc_score}}</span>{{star8.2.title}}</div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="carousel-inner onebyone-carosel">
                                 <div class="item">
                                     <div class="col-md-4">
                                         <a href="#"><img src="{{ star8.3.image.url }}" class="img-responsive center-block" width="300px" height="150px"></a>
                                         <div class="text-center"><span class="label label-info">{{star8.3.calc_score}}</span>{{star8.3.title}}</div>
                                     </div>
                                 </div>
+                            </div>
                                 <div class="item">
                                     <div class="col-md-4">
                                         <a href="#"><img src="{{ star8.4.image.url }}" class="img-responsive center-block" width="300px" height="150px"></a>
                                         <div class="text-center"><span class="label label-info">{{star8.4.calc_score}}</span>{{star8.4.title}}</div>
                                     </div>
                                 </div>
+                            <div class="carousel-inner onebyone-carosel">
                                 <div class="item">
                                     <div class="col-md-4">
                                         <a href="#"><img src="{{ star8.5.image.url }}" class="img-responsive center-block" width="300px" height="150px"></a>
                                         <div class="text-center"><span class="label label-info">{{star8.5.calc_score}}</span>{{star8.5.title}}</div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="carousel-inner onebyone-carosel">
                                 <div class="item">
                                     <div class="col-md-4">
                                         <a href="#"><img src="{{ star8.6.image.url }}" class="img-responsive center-block" width="300px" height="150px"></a>
                                         <div class="text-center"><span class="label label-info">{{star8.6.calc_score}}</span>{{star8.6.title}}</div>
                                     </div>
                                 </div>
-
-
                             </div>
-                            <a class="left carousel-control" href="#eventCarousel" data-slide="prev"></a>
-                            <a class="right carousel-control" href="#eventCarousel" data-slide="next"></a>
+                            <a class="pull-left " href="#eventCarousel" data-slide="prev" ><strong > << Previous </strong></a>
+                            <a class="pull-right " href="#eventCarousel" data-slide="next" ><strong >Next >></strong></a>
                         </div>
+                        
                         <!--/carousel-inner-->
                     </div><!--/myCarousel-->
                 </div><!--/well-->
