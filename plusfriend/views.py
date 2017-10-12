@@ -8,13 +8,8 @@ from django.db.models import Q
 @bot
 def on_init(request):
 
-    return {
-            
-            "keyboard": {
-                "type": "text",
+    return  {"type": "text" }
 
-             }
-        }
 
 
 @bot
