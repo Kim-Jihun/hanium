@@ -7,7 +7,7 @@ from django.http import JsonResponse
 @bot
 def on_init(request):
 
-    return {'type': 'buttons', 'buttons': ['서울대입구', '신촌', '왕십리', '왜 안되나 아무거나 시험']}
+    return {'type': 'buttons', 'buttons': ['장소', '메뉴', '가격', '왜 안되나 아무거나 시험']}
     #return {'type': 'text'}
 
 
@@ -20,10 +20,8 @@ def on_message(request):
 
 
 
-    if '서울대' in content:
-        qs = Post.objects.filter(tag_set__location__icontains='서울대')
-        ordered_query = qs.order_by('-score')
-        response = ordered_query[0]
+    if '장소' in content:
+        return {'type': 'buttons', 'buttons': ['서울대입구', '신촌', '왕십리']}
     elif '신' in content:
         qs = Post.objects.filter(tag_set__location__icontains='신촌')
         ordered_query = qs.order_by('-score')

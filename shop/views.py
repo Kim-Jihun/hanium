@@ -165,7 +165,7 @@ def recommendation(request):
         print("here")
         print(recommendation)
         for tuple in recommendation:
-            object = Post.objects.get(title = tuple[1])
+            object = Post.objects.get(title__icontains= tuple)
             recommend_restaurant_list.append(object)
     else:
         pass
