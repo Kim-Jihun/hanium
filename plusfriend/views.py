@@ -36,7 +36,7 @@ def on_message(request):
 
             query_set = Post.objects.filter(
                 Q(tag_set__location__icontains=location)&Q(tag_set__menu__icontains=menu)
-            ).order_by('-score')[0:7]
+            ).order_by('-score')
 
         except Exception:
             return {
