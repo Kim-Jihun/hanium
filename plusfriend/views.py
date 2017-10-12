@@ -21,7 +21,7 @@ def on_message(request):
 
 
 
-    if content != '다시 검색하기' or content !='나가기':
+    if content != '다시 검색하기' or content !='그만 검색':
 
         list = content.split(',')
         new_list = []
@@ -92,7 +92,7 @@ def on_message(request):
 
     return {
         'message': {
-            'text': '식당이름:' + final_shop_list,
+            'text': '식당이름:' + str(final_shop_list)
         },
 
         "keyboard": {
