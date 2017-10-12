@@ -8,8 +8,19 @@ from django.db.models import Q
 @bot
 def on_init(request):
 
-    return  {"type": "text" }
+    return  {
+             "type": "text",
 
+             'message': {
+                'text': 'Eatcha입니다! 맛집검색시 장소, 메뉴로 검색해 주세요, 높은 평점대로 보여드립니다!',
+                'photo': {
+                    #"url": 'https://s3.ap-northeast-2.amazonaws.com/eatcha' + response.image.url,
+                    "url": 'http://blogfiles1.naver.net/20140806_24/eat_korea_1407302198842EXh5b_JPEG/K-2.jpg',
+                    "width": 640,
+                    "height": 480,
+                },
+             }
+    }
 
 
 @bot
