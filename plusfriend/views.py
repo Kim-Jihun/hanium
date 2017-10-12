@@ -95,8 +95,8 @@ def on_message(request):
         for i in final_shop_list:
             string += str(i)[1:len(str(i))-1]
             #print(i)
-            string += '\n'
-        string += '\n\n\n'
+            string += '\n\n\n'
+
         return string
 
     return {
