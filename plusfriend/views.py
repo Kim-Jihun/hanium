@@ -91,10 +91,10 @@ def on_message(request):
         final_shop_list.append(shop_temp)
 
     def to_string(self, final_shop_list):
-        str = []
+        str = ""
         for i in final_shop_list:
             for j in i:
-                str = "" + str(j) + "\n"
+                str + str(j) + "\n"
             "\n\n"
         return str
 
