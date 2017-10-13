@@ -94,7 +94,7 @@ def on_message(request):
     def comma(num):
         '''Add comma to every 3rd digit. Takes int or float and
         returns string.'''
-        if type(num) == int:
+        if type(num) is int:
             return format (num, ',d')
 
         else:
