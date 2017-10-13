@@ -111,7 +111,7 @@ def on_message(request):
         price_string += "원"
         shop_temp['평균가격'] = price_string'''
         #shop_temp['평균가격'] = str(tag.avg_price)
-        shop_temp['평균가격'] = str(tag.avg_price)
+        shop_temp['평균가격'] = comma(tag.avg_price)
         shop_temp['별점'] = str(i.score/10) + '점'
         shop_temp['상세소개 url'] = ' '+ 'http://production.g3g2me2gp2.ap-northeast-2.elasticbeanstalk.com'+resolve_url('shop:detail', id=i.id)+' '
         final_shop_list.append(shop_temp)
