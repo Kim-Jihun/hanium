@@ -9,7 +9,8 @@ from django.db.models import Q
 def comma(num):
 
     if type(num) is int:
-        return format(num, ',d')
+        string = format(num, ',d')
+        return string
 
     else:
         print("Need int as input to function comma()!")
