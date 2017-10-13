@@ -28,6 +28,7 @@ def crawling_data(q):
             count = count + 20
 
         else:
+            print("이미 있는 데이터")
             break
 
         res_info = []

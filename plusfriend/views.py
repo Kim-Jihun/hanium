@@ -91,12 +91,22 @@ def on_message(request):
 
     final_shop_list = []
 
+    def comma(num):
+        '''Add comma to every 3rd digit. Takes int or float and
+        returns string.'''
+        if type(num) == int:
+            return '{:,}'.format(num)
+        elif type(num) == float:
+            return '{:,.2f}'.format(num) # Rounds to 2 decimal places
+        else:
+            print("Need int or float as input to function comma()!")
+
     for i in query_set:
         tag = i.tag_set.all()[0]
         shop_temp = dict()
         shop_temp['이름'] = tag.title
         shop_temp['메뉴'] = tag.menu
-        shop_temp['평균가격'] =  str(tag.avg_price) + '원'
+        shop_temp['평균가격'] =  comma(tag.avg_price) + '원'
         shop_temp['별점'] =  str(i.score/10) + '점'
         shop_temp['상세소개 url'] = ' '+ 'http://production.g3g2me2gp2.ap-northeast-2.elasticbeanstalk.com'+resolve_url('shop:detail', id=i.id)+' '
         final_shop_list.append(shop_temp)
