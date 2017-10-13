@@ -12,7 +12,7 @@ def crawling_data(q):
     url = "https://m.store.naver.com/sogum/api/businesses"
 
 
-    for k in range(0, 2):
+    for k in range(0, 4):
         params = {
             'query': q,
             'start' : count,
