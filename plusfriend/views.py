@@ -92,10 +92,9 @@ def on_message(request):
     final_shop_list = []
 
     def comma(num):
-        '''Add comma to every 3rd digit. Takes int or float and
-        returns string.'''
+
         if type(num) is int:
-            return format (num, ',d')
+            return format(num, ',d')
 
         else:
             print("Need int as input to function comma()!")
