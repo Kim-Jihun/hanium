@@ -95,11 +95,10 @@ def on_message(request):
         '''Add comma to every 3rd digit. Takes int or float and
         returns string.'''
         if type(num) == int:
-            return '{:,}'.format(num)
-        elif type(num) == float:
-            return '{:,.2f}'.format(num) # Rounds to 2 decimal places
+            return format (num, ',d')
+
         else:
-            print("Need int or float as input to function comma()!")
+            print("Need int as input to function comma()!")
 
     for i in query_set:
         tag = i.tag_set.all()[0]
