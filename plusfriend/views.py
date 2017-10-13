@@ -5,6 +5,16 @@ from shop.models import Post, Tag, Rating
 from django.http import JsonResponse
 from django.db.models import Q
 
+
+def comma(num):
+
+    if type(num) is int:
+        return format(num, ',d')
+
+    else:
+        print("Need int as input to function comma()!")
+
+
 @bot
 def on_init(request):
 
@@ -91,13 +101,6 @@ def on_message(request):
 
     final_shop_list = []
 
-    def comma(num):
-
-        if type(num) is int:
-            return format(num, ',d')
-
-        else:
-            print("Need int as input to function comma()!")
 
     for i in query_set:
         tag = i.tag_set.all()[0]
