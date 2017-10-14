@@ -18,6 +18,19 @@ class Post(models.Model):
     tag_set = models.ManyToManyField('Tag', blank=True)
     score = models.SmallIntegerField(default=-1,)
     phone_number = models.TextField(max_length=15, verbose_name="전화번호", default='전화번호 정보 없음')
+
+    blog_title1=models.CharField(max_length=200, verbose_name="블로그1", default='내용없음')
+    blog_content1=models.TextField(max_length=500, verbose_name="내용", default='내용없음', null=True)
+    link1=models.CharField(max_length=200, verbose_name="링크1",default='내용없음')
+
+    blog_title2=models.CharField(max_length=200, verbose_name="블로그2", default='내용없음', null=True)
+    blog_content2=models.TextField(max_length=500, verbose_name="내용", default='내용없음', null=True)
+    link2=models.CharField(max_length=200, verbose_name="링크2",default='내용없음', null=True)
+
+    blog_title3=models.CharField(max_length=200, verbose_name="블로그2", default='내용없음', null=True)
+    blog_content3=models.TextField(max_length=500, verbose_name="내용", default='내용없음', null=True)
+    link3=models.CharField(max_length=200, verbose_name="링크3", default='내용없음', null=True)
+
     class Meta:
         ordering=['-id']
 

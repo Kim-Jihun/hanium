@@ -12,7 +12,7 @@ def crawling_data(q):
     url = "https://m.store.naver.com/sogum/api/businesses"
 
 
-    for k in range(0, 4):
+    for k in range(0, 1):
         params = {
             'query': q,
             'start' : count,
@@ -28,7 +28,7 @@ def crawling_data(q):
             count = count + 20
 
         else:
-            print("이미 있는 데이터")
+            print("이미 있는 데이")
             break
 
         res_info = []
@@ -52,6 +52,7 @@ def crawling_data(q):
             detail_html = requests.get(detail_url, params = detail_params).text
             bs_obj = BeautifulSoup(detail_html, 'html.parser')
             content_dict = {}
+            blog_dict = {}
             try:
                 content_dict['lnglat'] = str(res_basic_dic[res][0]).replace('(','').replace(')','').replace("'", '')
                 content_dict['tag'] = str(res_basic_dic[res][1]).replace('[','').replace(']','').strip()
@@ -59,6 +60,19 @@ def crawling_data(q):
                 content_dict['address'] = bs_obj.select('.addr')[0].text
                 content_dict['phone_number'] = bs_obj.select('.btn_tel')[0]['href']
                 content_dict['avail_time'] = bs_obj.select('.txt > span')[4].text
+
+                    #추가한부분
+
+                content_dict['title1'] =bs_obj.select('#content > div.sc_box.review > ul > li > a > div.info_area > div.tit.ellp2')[0].text
+                content_dict['content1'] =bs_obj.select('#content > div.sc_box.review > ul > li > a > div.info_area > div.txt')[0].text
+                content_dict['link1'] =bs_obj.select('#content > div.sc_box.review > ul > li > a')[0].get('href')
+                content_dict['title2'] =bs_obj.select('#content > div.sc_box.review > ul > li > a > div.info_area > div.tit.ellp2')[1].text
+                content_dict['content2'] =bs_obj.select('#content > div.sc_box.review > ul > li > a > div.info_area > div.txt')[1].text
+                content_dict['link2'] =bs_obj.select('#content > div.sc_box.review > ul > li > a')[1].get('href')
+                content_dict['title3'] =bs_obj.select('#content > div.sc_box.review > ul > li > a > div.info_area > div.tit.ellp2')[2].text
+                content_dict['content3'] =bs_obj.select('#content > div.sc_box.review > ul > li > a > div.info_area > div.txt')[2].text
+                content_dict['link3'] =bs_obj.select('#content > div.sc_box.review > ul > li > a')[2].get('href')
+
 
 
 
@@ -161,6 +175,21 @@ def post_rest(keyword):
                 lnglat= rest.get('lnglat'),
 
                 phone_number=rest.get('phone_number'),
+
+                blog_title1 = rest.get('title1'),
+                blog_content1 = rest.get('content1'),
+                link1 = rest.get('link1'),
+
+                blog_title2 = rest.get('title2'),
+                blog_content2 = rest.get('content2'),
+                link2 = rest.get('link2'),
+
+                blog_title3 = rest.get('title3'),
+                blog_content3 = rest.get('content3'),
+                link3 = rest.get('link3'),
+
+
+
             )
             post_instance.save()
 

@@ -30,11 +30,11 @@ span.star-prototype > * {
         <div class="row fh5co-post-entry single-entry">
             <article class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
                 <figure class="animate-box">
-                    <img src="{{ post.image.url }}" alt="Image" class="img-responsive">
+                    <center><img src="{{ post.image.url }}" alt="Image" class="img-responsive" style="width:700px; height:500px;"></center>
                 </figure>
                 <span class="fh5co-meta animate-box">{{post.tags}}</span>
                 <h2 class="fh5co-article-title animate-box">{{post.title}}</h2>
-                <span class="fh5co-meta fh5co-date animate-box">July 7th, 2017</span>
+                <span class="fh5co-meta fh5co-date animate-box">{{post.date_created}}</span>
 
                 <div class="col-lg-12 col-lg-offset-0 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-left content-article">
                     <div class="row">
@@ -76,6 +76,32 @@ span.star-prototype > * {
 <html>
   <head>
     <style>
+        .blog-wrapper{width:960px; margin:0 auto; margin-top:20px; }
+
+        .blog-contain-div{border-bottom:1px solid #e0e0e0; width:100%; display:flex;display:-webkit-flex;}
+        .blog-content-div{flex:3;-webkit-flex:3; padding-top:21px; padding-bottom:19px; display:flex;display:-webkit-flex;}
+        .blog-info-div{flex:1;-webkit-flex:1;}
+        .blog-img{width:70px; height:70px; margin:13px 0px 17px 0px;}
+        .blog-img img{width:100%; height:100%; border-radius: 6px;}
+        .blog-content{flex:4; -webkit-flex:4; padding:10px 24px;}
+        .blog-title{width:100%; margin:0px 0px 10px 0px; font-size:14px; color:#009add;}
+        .blog-snippet-span{font-size:14px; color:#7b7b7b;}
+        .blog-info{border-left:1px solid #e0e0e0;  margin:24px 0px 21px 0px; padding:0px 17px;}
+        .blog-info-content{ display:flex;display:-webkit-flex; width:100%; margin-bottom:8px;}
+        .blog-info-img{width:32px; height:19px; margin-right:22px;}
+        .blog-info-text{ font-size:14px; text-align:left; flex:1;-webkit-flex:1; color:#009add;}
+
+        #review-title {
+        font-size: 24px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        color: #4a4a4a;
+        margin-bottom: 31px;
+}
+
+
+
        #map {
         height: 400px;
         width: 100%;
@@ -188,6 +214,131 @@ span.star-prototype > * {
                 </div>
             </article>
         </div>
+
+
     </div>
+
+<div id="div_blog" class="blog-wrapper">
+    <div id="review-title">추천 블로그</div><div id="blog_area">
+
+    <div class="blog-contain-div">
+        <div class="blog-content-div">
+            <div class="blog-img"><img src="https://d2t7cq5f1ua57i.cloudfront.net/images/p_images/50072/53697/50072_53697_65_0_8798_201612932821408_70x70.jpg" onerror="noImage(this,'blog')"></div>
+            <div class="blog-content">
+                <div class="blog-title">
+                    <form action="open_blog.php" method="post" target="_blank" class="ng-pristine ng-valid">
+                        <a href="{{ post.link1 }}">{{ post.blog_title1 }}</a>
+                        <input type="hidden" name="url" value="blog.naver.com/PostView.nhn?blogId=midoria81&amp;logNo=220856246112&amp;redirect=Dlog&amp;widgetTypeCall=true">
+                        <input type="hidden" name="v_rid" value="c5tiaEcMs5Di">
+                        <input type="hidden" name="src" value="blog.naver.com">
+                        <input type="hidden" name="p_id" value="10218408">
+                    </form>
+                </div>
+
+                 <span class="blog-snippet-span"> {{ post.blog_content1 }}&amp;</span>
+            </div>
+        </div>
+
+        <div class="blog-info-div">
+
+            <div class="blog-info">
+
+                <div class="blog-info-content">
+                    <img class="blog-info-img" src="img/profile/blog/title_from.png" alt="From">
+                    <span class="blog-info-text">blog.naver.com</span>
+                </div>
+                <div class="blog-info-content">
+                    <img class="blog-info-img" src="img/profile/blog/title-by.png" alt="By">
+                    <span class="blog-info-text">
+                        <a href="{{ post.link1 }}" target="_blank">{{ post.blog_title1 }}</a>                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="div_blog" class="blog-wrapper">
+
+    <div class="blog-contain-div">
+        <div class="blog-content-div">
+            <div class="blog-img"><img src="https://d2t7cq5f1ua57i.cloudfront.net/images/p_images/50072/53697/50072_53697_65_0_8798_201612932821408_70x70.jpg" onerror="noImage(this,'blog')"></div>
+            <div class="blog-content">
+                <div class="blog-title">
+                    <form action="open_blog.php" method="post" target="_blank" class="ng-pristine ng-valid">
+                        <a href="{{ post.link2 }}">{{ post.blog_title2 }}</a>
+                        <input type="hidden" name="url" value="blog.naver.com/PostView.nhn?blogId=midoria81&amp;logNo=220856246112&amp;redirect=Dlog&amp;widgetTypeCall=true">
+                        <input type="hidden" name="v_rid" value="c5tiaEcMs5Di">
+                        <input type="hidden" name="src" value="blog.naver.com">
+                        <input type="hidden" name="p_id" value="10218408">
+                    </form>
+                </div>
+
+                 <span class="blog-snippet-span"> {{ post.blog_content2 }}&amp;</span>
+            </div>
+        </div>
+
+        <div class="blog-info-div">
+
+            <div class="blog-info">
+
+                <div class="blog-info-content">
+                    <img class="blog-info-img" src="img/profile/blog/title_from.png" alt="From">
+                    <span class="blog-info-text">blog.naver.com</span>
+                </div>
+                <div class="blog-info-content">
+                    <img class="blog-info-img" src="img/profile/blog/title-by.png" alt="By">
+                    <span class="blog-info-text">
+                        <a href="{{ post.link2 }}" target="_blank">{{ post.blog_title2 }}</a>                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        <div id="div_blog" class="blog-wrapper">
+
+    <div class="blog-contain-div">
+        <div class="blog-content-div">
+            <div class="blog-img"><img src="https://d2t7cq5f1ua57i.cloudfront.net/images/p_images/50072/53697/50072_53697_65_0_8798_201612932821408_70x70.jpg" onerror="noImage(this,'blog')"></div>
+            <div class="blog-content">
+                <div class="blog-title">
+                    <form action="open_blog.php" method="post" target="_blank" class="ng-pristine ng-valid">
+                        <a href="{{ post.link3 }}">{{ post.blog_title3 }}</a>
+                        <input type="hidden" name="url" value="blog.naver.com/PostView.nhn?blogId=midoria81&amp;logNo=220856246112&amp;redirect=Dlog&amp;widgetTypeCall=true">
+                        <input type="hidden" name="v_rid" value="c5tiaEcMs5Di">
+                        <input type="hidden" name="src" value="blog.naver.com">
+                        <input type="hidden" name="p_id" value="10218408">
+                    </form>
+                </div>
+
+                 <span class="blog-snippet-span"> {{ post.blog_content3 }}&amp;</span>
+            </div>
+        </div>
+
+        <div class="blog-info-div">
+
+            <div class="blog-info">
+
+                <div class="blog-info-content">
+                    <img class="blog-info-img" src="img/profile/blog/title_from.png" alt="From">
+                    <span class="blog-info-text">blog.naver.com</span>
+                </div>
+                <div class="blog-info-content">
+                    <img class="blog-info-img" src="img/profile/blog/title-by.png" alt="By">
+                    <span class="blog-info-text">
+                        <a href="{{ post.link3 }}" target="_blank">{{ post.blog_title3 }}</a>                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    </div>
+ </div>
+
 {% endblock %}
 
