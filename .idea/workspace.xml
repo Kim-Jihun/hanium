@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35cc6f1e-2707-4cf1-b104-490099b77522" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Untitled.ipynb" afterPath="$PROJECT_DIR$/Untitled.ipynb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shop/models.py" afterPath="$PROJECT_DIR$/shop/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shop/templates/shop/post_detail.html" afterPath="$PROJECT_DIR$/shop/templates/shop/post_detail.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shop/utils/crawling_restaurant/crawling.py" afterPath="$PROJECT_DIR$/shop/utils/crawling_restaurant/crawling.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -130,7 +127,7 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="post_detail.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="post_detail.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/shop/templates/shop/post_detail.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="85">
@@ -176,11 +173,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="crawling.py" pinned="false" current-in-tab="false">
+          <file leaf-file-name="crawling.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/shop/utils/crawling_restaurant/crawling.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="213">
-                  <caret line="188" column="21" lean-forward="false" selection-start-line="188" selection-start-column="21" selection-end-line="188" selection-end-column="21" />
+                <state relative-caret-position="43">
+                  <caret line="14" column="23" lean-forward="false" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
                   <folding>
                     <element signature="e#0#15#0" expanded="true" />
                   </folding>
@@ -263,8 +260,8 @@
       <find>recomm</find>
       <find>review</find>
       <find>def</find>
-      <find>di</find>
       <find>if</find>
+      <find>di</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -302,8 +299,8 @@
         <option value="$PROJECT_DIR$/shop/templates/shop/post_home.html" />
         <option value="$PROJECT_DIR$/plusfriend/views.py" />
         <option value="$PROJECT_DIR$/shop/models.py" />
-        <option value="$PROJECT_DIR$/shop/utils/crawling_restaurant/crawling.py" />
         <option value="$PROJECT_DIR$/shop/templates/shop/post_detail.html" />
+        <option value="$PROJECT_DIR$/shop/utils/crawling_restaurant/crawling.py" />
       </list>
     </option>
   </component>
@@ -1128,16 +1125,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shop/utils/crawling_restaurant/crawling.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="188" column="21" lean-forward="false" selection-start-line="188" selection-start-column="21" selection-end-line="188" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shop/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
@@ -1156,6 +1143,16 @@
             <element signature="e#10105#10110#0" expanded="true" />
             <element signature="e#11967#11972#0" expanded="true" />
             <element signature="e#13834#13839#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop/utils/crawling_restaurant/crawling.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="43">
+          <caret line="14" column="23" lean-forward="false" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
