@@ -8,7 +8,7 @@ pymysql.install_as_MySQLdb()
 #예외내역 user에게 노출
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 # midify
 ALLOWED_HOSTS = ["*"] # 서비스 주소
 
